@@ -13,7 +13,7 @@
 
   if($glossaryvotacao = $webgdCommunityDao->searchGlossaryUserVotation($idGlossario,$USER->id)){
     $votoAnterior = $glossaryvotacao->voto;
-    $DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_GLOSSARRY_VOTACAO, array('id'=>$glossaryvotacao->id));
+    $DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_GLOSSARRY_VOTACAO, array('id'=>$glossaryvotacao->id));
   }
 
   $glossary_user_votation = new stdClass();
@@ -21,7 +21,7 @@
   $glossary_user_votation->glossarryid = $idGlossario;
   $glossary_user_votation->voto = $voto;
 
-  $DB->insert_record(TableResoucer::$TABLE_PAGE_COMMUNITY_GLOSSARRY_VOTACAO, $glossary_user_votation);
+  $DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_GLOSSARRY_VOTACAO, $glossary_user_votation);
 
   $glossary = $webgdCommunityDao->searchGlossaryById($idGlossario);
 
@@ -36,7 +36,7 @@
 		$votos = $glossary->votos;
   }
 
-  $DB->update_record(TableResoucer::$TABLE_PAGE_COMMUNITY_GLOSSARY, $glossary);
+  $DB->update_record(TableResouces::$TABLE_PAGE_COMMUNITY_GLOSSARY, $glossary);
 
   $nivel = ($votos/$total)/10;
 

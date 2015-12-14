@@ -65,14 +65,14 @@ if ($community) {
         $communutyUser->userid = $USER->id;
 
         $msg = get_string('msgErroParticiparComunidade', 'block_webgd_community') . $community->name;
-        if ($DB->insert_record(TableResoucer::$TABLE_PAGE_COMMUNITY_USER, $communutyUser, true)) {
+        if ($DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_USER, $communutyUser, true)) {
 
             $msg = get_string('msgParticiparComunidade', 'block_webgd_community') . $community->name;
         }
 
         redirect($url, $msg, 10);
     } elseif ($confirm == 2) {
-        $DB->execute("DELETE FROM {$CFG->prefix}" . TableResoucer::$TABLE_PAGE_COMMUNITY_USER . " WHERE community = {$community->id} AND userid = {$USER->id}");
+        $DB->execute("DELETE FROM {$CFG->prefix}" . TableResouces::$TABLE_PAGE_COMMUNITY_USER . " WHERE community = {$community->id} AND userid = {$USER->id}");
 
         redirect($url, get_string('msgSairDaComunidade', 'block_webgd_community') . $community->name, 10);
     } else {

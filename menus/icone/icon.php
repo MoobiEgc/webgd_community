@@ -70,7 +70,7 @@ if ($data = $mform->get_data()) {
 
 		$msg = "Ocorreu um erro ao editar o icone";
 
-		if($DB->update_record(TableResoucer::$TABLE_PAGE_COMMUNITY_LINKS, $glossary)){
+		if($DB->update_record(TableResouces::$TABLE_PAGE_COMMUNITY_LINKS, $glossary)){
 			$msg = "Icone editado com sucesso";
 		}
 	}else{
@@ -92,7 +92,7 @@ if ($data = $mform->get_data()) {
 			$icon->name = $data->nome;
 			$icon->url= $data->link;
 
-			$DB->insert_record(TableResoucer::$TABLE_PAGE_COMMUNITY_LINKS, $icon);
+			$DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_LINKS, $icon);
 
 			$transaction->allow_commit();
 

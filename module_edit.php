@@ -64,7 +64,7 @@ if ($data = $mform->get_data()) {
 
         $msg = get_string('msgErroComunidadeRegistro', 'block_webgd_community');
 
-        if ($idCommunity = $DB->insert_record(TableResoucer::$TABLE_PAGE_COMMUNITY, $communuty, true)) {
+        if ($idCommunity = $DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY, $communuty, true)) {
             $msg = get_string('msgComunidadeCadastradaSucesso', 'block_webgd_community');
         }
 
@@ -74,14 +74,14 @@ if ($data = $mform->get_data()) {
             $communutyUser->community = $idCommunity;
             $communutyUser->admin = 0;
             $communutyUser->userid = $idUser;
-            $DB->insert_record(TableResoucer::$TABLE_PAGE_COMMUNITY_USER, $communutyUser);
+            $DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_USER, $communutyUser);
         }
 
         //ADMIN
         $communutyUser->admin = 1;
         $communutyUser->userid = $USER->id;
 
-        $DB->insert_record(TableResoucer::$TABLE_PAGE_COMMUNITY_USER, $communutyUser);
+        $DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_USER, $communutyUser);
 
         $transaction->allow_commit();
         redirect($CFG->wwwroot . "/blocks/webgd_community/view.php?community=$idCommunity", $msg, 10);

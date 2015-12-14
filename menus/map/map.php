@@ -82,7 +82,7 @@ if ($data = $mform->get_data()) {
 
 		$msg = "Ocorreu um erro ao editar o link";
 
-		if($DB->update_record(TableResoucer::$TABLE_PAGE_COMMUNITY_LINKS, $map)){
+		if($DB->update_record(TableResouces::$TABLE_PAGE_COMMUNITY_LINKS, $map)){
 			$msg = "Link editado com sucesso";
 		}
 	}else{
@@ -104,7 +104,7 @@ if ($data = $mform->get_data()) {
 			$map->name = $data->nome;
 			$map->url= $data->link;
 
-			$DB->insert_record(TableResoucer::$TABLE_PAGE_COMMUNITY_LINKS, $map);
+			$DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_LINKS, $map);
 
 			$transaction->allow_commit();
 

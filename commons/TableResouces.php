@@ -1,5 +1,5 @@
 <?php
-class TableResoucer{
+class TableResouces{
 	public static $TABLE_PAGINA = 'block_webgd_pagina';
 	public static $TABLE_PAGE_ORDER = 'block_webgd_pagina_order';
 	public static $TABLE_PAGE_COMMUNITY = 'block_webgd_cp';

@@ -18,7 +18,7 @@
 
   if($likedislike = $webgdCommunityDao->searchLikeDislikeUserVotation($idPost,$USER->id)){
     $votoAnterior = $likedislike->voto;
-    $DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_LIKEDISLIKE, array('id'=>$likedislike->id));
+    $DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_LIKEDISLIKE, array('id'=>$likedislike->id));
   }
 
   $likedislike_user_votation = new stdClass();
@@ -26,7 +26,7 @@
   $likedislike_user_votation->postid = $idPost;
   $likedislike_user_votation->voto = $voto;
 
-  $DB->insert_record(TableResoucer::$TABLE_PAGE_COMMUNITY_LIKEDISLIKE, $likedislike_user_votation);
+  $DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_LIKEDISLIKE, $likedislike_user_votation);
 
   $post = $webgdCommunityDao->searchPostByID($idPost);
   if($votoAnterior != 0){
@@ -43,7 +43,7 @@
     $post->total_votos_nao = $post->total_votos_nao+1;
   }
 
-  $DB->update_record(TableResoucer::$TABLE_PAGE_COMMUNITY_POST, $post);
+  $DB->update_record(TableResouces::$TABLE_PAGE_COMMUNITY_POST, $post);
 
   $nivel = $post->total_votos_sim."_".$post->total_votos_nao;
 

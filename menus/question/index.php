@@ -64,7 +64,7 @@ if($idQuestion){
 				$object->userid = $USER->id;
 				$object->answer_question = $_POST['resposta'];
 				$object->time = time();
-				$DB->insert_record(TableResoucer::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION_USER, $object);
+				$DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION_USER, $object);
 
 				$transaction->allow_commit();
 				$msg = "Enquete Respondida com sucesso";

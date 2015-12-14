@@ -109,13 +109,13 @@ if ($data = $mform->get_data()) {
 			$perguntaQuestao->name_question = $data->pergunta[$correrVideos];
 			$perguntaQuestao->video = $video;
 			$perguntaQuestao->question = $question->id;
-			$DB->insert_record(TableResoucer::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION, $perguntaQuestao);
+			$DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION, $perguntaQuestao);
 			$correrVideos++;
 		}
 
 		$msg = "Ocorreu um erro ao editar a enquete";
 
-		if($DB->update_record(TableResoucer::$TABLE_PAGE_COMMUNITY_QUESTION, $question)){
+		if($DB->update_record(TableResouces::$TABLE_PAGE_COMMUNITY_QUESTION, $question)){
 			$msg = "Enquete editada com sucesso";
 		}
 	}else{
@@ -152,7 +152,7 @@ if ($data = $mform->get_data()) {
 				$question->post = $idPost;
 				$question->attachmentQuestion = $pathAttQuestion;
 
-				$idQuestion = $DB->insert_record(TableResoucer::$TABLE_PAGE_COMMUNITY_QUESTION, $question);
+				$idQuestion = $DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_QUESTION, $question);
 
 				$correrVideos=0;
 				foreach ($data->video as $video){
@@ -160,7 +160,7 @@ if ($data = $mform->get_data()) {
 					$perguntaQuestao->name_question = $data->pergunta[$correrVideos];
 					$perguntaQuestao->video = $video;
 					$perguntaQuestao->question = $idQuestion;
-					$DB->insert_record(TableResoucer::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION, $perguntaQuestao);
+					$DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION, $perguntaQuestao);
 					$correrVideos++;
 				}
 

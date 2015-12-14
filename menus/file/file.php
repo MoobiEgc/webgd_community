@@ -65,7 +65,7 @@ if ($data = $mform->get_data()) {
         if ($arquivo = $webgdCommunityDao->searchFileById($idFile)) {
             $arquivo->name = $data->nome;
 
-            if ($id = $DB->update_record(TableResoucer::$TABLE_PAGE_COMMUNITY_MEDIA, $arquivo)) {
+            if ($id = $DB->update_record(TableResouces::$TABLE_PAGE_COMMUNITY_MEDIA, $arquivo)) {
                 $msg = 'Arquivo editado com sucesso';
             }
         }

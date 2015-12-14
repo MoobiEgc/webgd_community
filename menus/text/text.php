@@ -57,7 +57,7 @@ if ($data = $mform->get_data()) {
         if ($arquivo = $webgdCommunityDao->searchTextById($idText)) {
             $arquivo->message = $data->message;
 
-            if ($id = $DB->update_record(TableResoucer::$TABLE_PAGE_COMMUNITY_TEXT, $arquivo)) {
+            if ($id = $DB->update_record(TableResouces::$TABLE_PAGE_COMMUNITY_TEXT, $arquivo)) {
                 $msg = 'Texto editado com sucesso';
             }
         }

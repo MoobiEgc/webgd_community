@@ -41,9 +41,9 @@ class WebgdCommunityDao{
 		$sql = "select
 			pt.id, md.name, u.firstname, pt.time, u.id as userid
 		from
-		{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_MEDIA." md
+		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_MEDIA." md
 		inner join
-		{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_POST." pt on
+		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_POST." pt on
 			md.post = pt.id
 		inner join
 		{$this->CFG->prefix}user u on
@@ -61,7 +61,7 @@ class WebgdCommunityDao{
 		$sql = "select
 			wcf.id, wcf.name, u.firstname, wcf.timecreated, u.id as userid
 		from
-		{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_PHOTO_COMMUNITY." wcf
+		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_PHOTO_COMMUNITY." wcf
 		inner join
 		{$this->CFG->prefix}user u on
 			u.id = wcf.userid
@@ -78,7 +78,7 @@ class WebgdCommunityDao{
 		$sql = "select
 			wcf.id, wcf.name, u.firstname, wcf.timecreated, u.id as userid
 		from
-		{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_MOVIE_COMMUNITY." wcf
+		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_MOVIE_COMMUNITY." wcf
 		inner join
 		{$this->CFG->prefix}user u on
 			u.id = wcf.userid
@@ -95,9 +95,9 @@ class WebgdCommunityDao{
                     $sql = "select
 			pt.id, qt.name, qt.startdate, qt.enddate, qt.enabled, u.firstname, pt.time, u.id as userid
 		from
-		{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_QUESTION." qt
+		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_QUESTION." qt
 		inner join
-		{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_POST." pt on
+		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_POST." pt on
 			qt.post = pt.id
 		inner join
 		{$this->CFG->prefix}user u on
@@ -114,9 +114,9 @@ class WebgdCommunityDao{
 		$sql = "select
 			pt.id, qt.name, u.firstname, pt.time, u.id as userid
 		from
-		{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_QUESTION." qt
+		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_QUESTION." qt
 		inner join
-		{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_POST." pt on
+		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_POST." pt on
 			qt.post = pt.id
 		inner join
 		{$this->CFG->prefix}user u on
@@ -138,7 +138,7 @@ class WebgdCommunityDao{
 			wcq.userid,
 			wcq.url
 		from
-		{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_MENTAL_MAP."  wcq
+		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_MENTAL_MAP."  wcq
 		inner join
 		{$this->CFG->prefix}user u on
 			wcq.userid = u.id
@@ -150,16 +150,16 @@ class WebgdCommunityDao{
 	}
 
 	public function iconsByCommunity($idCommunity){
-		return $this->DB->get_records(TableResoucer::$TABLE_PAGE_COMMUNITY_ICONE, array('community' => $idCommunity));
+		return $this->DB->get_records(TableResouces::$TABLE_PAGE_COMMUNITY_ICONE, array('community' => $idCommunity));
 	}
 
 	public function allLinksByCommunity($idCommunity, $type){
 		$sql = "select
 			pt.id, lk.name, lk.url, pt.time, u.firstname, u.id as userid
 		from
-		{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_LINKS." lk
+		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_LINKS." lk
 		inner join
-		{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_POST." pt on
+		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_POST." pt on
 			lk.post = pt.id
 		inner join
 		{$this->CFG->prefix}user u on
@@ -176,9 +176,9 @@ class WebgdCommunityDao{
 		$sql = "select
 			pt.id, lk.name, u.firstname, pt.time, u.id as userid
 		from
-		{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_LINKS." lk
+		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_LINKS." lk
 		inner join
-		{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_POST." pt on
+		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_POST." pt on
 			lk.post = pt.id
 		inner join
 		{$this->CFG->prefix}user u on
@@ -207,7 +207,7 @@ class WebgdCommunityDao{
 			gls.total_votos,
 			gls.votos
 		from
-			{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_GLOSSARY." gls
+			{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_GLOSSARY." gls
 		inner join
 			{$this->CFG->prefix}user u on
 			gls.userid = u.id";
@@ -222,7 +222,7 @@ class WebgdCommunityDao{
 	}
 
 	public function myIcons($idCommunity,$userid){
-		return $this->DB->get_records(TableResoucer::$TABLE_PAGE_COMMUNITY_ICONE, array('community' => $idCommunity, 'userid'=> $userid));
+		return $this->DB->get_records(TableResouces::$TABLE_PAGE_COMMUNITY_ICONE, array('community' => $idCommunity, 'userid'=> $userid));
 	}
 
 
@@ -235,7 +235,7 @@ class WebgdCommunityDao{
 			wcq.userid,
 			wcq.url
 		from
-		{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_MENTAL_MAP."  wcq
+		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_MENTAL_MAP."  wcq
 		inner join
 		{$this->CFG->prefix}user u on
 			wcq.userid = u.id
@@ -248,50 +248,50 @@ class WebgdCommunityDao{
 	}
 
 	public function postCommentById($idPost){
-		return $this->DB->get_records(TableResoucer::$TABLE_PAGE_COMMUNITY_POST_COMMENT, array('postid'=> $idPost));
+		return $this->DB->get_records(TableResouces::$TABLE_PAGE_COMMUNITY_POST_COMMENT, array('postid'=> $idPost));
 	}
 
 	public function searchPostByID($idPost){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_POST, array('id'=> $idPost));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_POST, array('id'=> $idPost));
 	}
 
 	public function searchTextById($idFile){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_TEXT, array('post'=> $idFile));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_TEXT, array('post'=> $idFile));
 	}
 
 	public function searchFileById($idFile){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_MEDIA, array('post'=> $idFile));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_MEDIA, array('post'=> $idFile));
 	}
 
 	public function searchPhotoById($idPhoto){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_MEDIA, array('post'=> $idPhoto));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_MEDIA, array('post'=> $idPhoto));
 	}
 
 	public function searchMovieById($idMovie){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_MEDIA, array('post'=> $idMovie));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_MEDIA, array('post'=> $idMovie));
 	}
 
 	public function searchPhotoCommunityById($idCommunity, $idPhoto){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_POST, array('community' => $idCommunity, 'id'=> $idPhoto));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_POST, array('community' => $idCommunity, 'id'=> $idPhoto));
 	}
 
 	public function searchMovieCommunityById($idCommunity, $idMovie){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_POST, array('community' => $idCommunity, 'id'=> $idMovie));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_POST, array('community' => $idCommunity, 'id'=> $idMovie));
 	}
 
 	public function searchFileCommunityById($idCommunity, $idFile){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_POST, array('community' => $idCommunity, 'id'=> $idFile));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_POST, array('community' => $idCommunity, 'id'=> $idFile));
 	}
 
 	public function searchAskQuestionByCommunityById($idQuestion){
-		return $this->DB->get_records(TableResoucer::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION, array('question' => $idQuestion), "name_question");
+		return $this->DB->get_records(TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION, array('question' => $idQuestion), "name_question");
 	}
 
 	public function deleteAskedQuestionByUserById($idQuestion, $userid){
 		$sql = " DELETE aqu
-		from {$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION_USER." aqu
+		from {$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION_USER." aqu
 		inner join
-			{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION." aq on
+			{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION." aq on
 			aqu.answer_question = aq.id
 		where
 			aq.question = $idQuestion and aqu.userid = $userid";
@@ -302,9 +302,9 @@ class WebgdCommunityDao{
 	public function getTotalRespondidasEnquete($idQuestion){
 		$sql = " SELECT aqu.id
 		from
-		{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION_USER." aqu
+		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION_USER." aqu
 		inner join
-		{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION." aq on
+		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION." aq on
 			aqu.answer_question = aq.id
 		where
 			aq.question = $idQuestion";
@@ -315,7 +315,7 @@ class WebgdCommunityDao{
 	public function getTotalRespondidasEnqueteByPergunta($idPergunta){
 		$sql = " SELECT aqu.id
 		from
-		{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION_USER." aqu
+		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION_USER." aqu
 		where
 			aqu.answer_question = $idPergunta";
 
@@ -323,59 +323,59 @@ class WebgdCommunityDao{
 	}
 
 	public function searchQuestionByCommunityById($idQuestion){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_QUESTION, array('post'=> $idQuestion));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_QUESTION, array('post'=> $idQuestion));
 	}
 
 	public function searchAnswerById($idQuestion){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION, array('id' => $idQuestion));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION, array('id' => $idQuestion));
 	}
 
 	public function deleteAskQuestionByCommunity($idQuestion){
-		return $this->DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION, array('question' => $idQuestion));
+		return $this->DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION, array('question' => $idQuestion));
 	}
 
 	public function deleteTextById($idText, $idUser, $idPost){
-		$this->DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_TEXT, array('id' => $idText));
-		return $this->DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_POST, array('userid' => $idUser, 'id' => $idPost));
+		$this->DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_TEXT, array('id' => $idText));
+		return $this->DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_POST, array('userid' => $idUser, 'id' => $idPost));
 	}
 
 	public function deleteQuestionByCommunityById($idQuestion, $idUser, $idPost){
-		$this->DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_QUESTION, array('id' => $idQuestion));
-		return $this->DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_POST, array('userid' => $idUser, 'id' => $idPost));
+		$this->DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_QUESTION, array('id' => $idQuestion));
+		return $this->DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_POST, array('userid' => $idUser, 'id' => $idPost));
 	}
 
 	public function deleteMentalMapByCommunityByIdByuser($idLinks, $idUser, $idPost){
-		$this->DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_LINKS, array('id' => $idLinks));
-		return $this->DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_POST, array('userid' => $idUser, 'id' => $idPost));
+		$this->DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_LINKS, array('id' => $idLinks));
+		return $this->DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_POST, array('userid' => $idUser, 'id' => $idPost));
 	}
 
 	public function deleteIconsByCommunityByIdByuser($idLinks, $idUser, $idPost){
-		$this->DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_LINKS, array('id' => $idLinks));
-		return $this->DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_POST, array('userid' => $idUser, 'id' => $idPost));
+		$this->DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_LINKS, array('id' => $idLinks));
+		return $this->DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_POST, array('userid' => $idUser, 'id' => $idPost));
 	}
 
 	public function deleteGlossaryById($idGlossario){
-		return $this->DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_GLOSSARY, array('id' => $idGlossario));
+		return $this->DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_GLOSSARY, array('id' => $idGlossario));
 	}
 
 	public function deleteCommunityById($idCommunity){
 		$this->DB->execute('SET FOREIGN_KEY_CHECKS=0', null);
-		return $this->DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY, array('id' => $idCommunity));
+		return $this->DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY, array('id' => $idCommunity));
 	}
 
 	public function deletePhotoByCommunityByIdByuser($idPhoto, $idUser, $idPost){
-		$this->DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_MEDIA, array('id' => $idPhoto));
-		return $this->DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_POST, array('userid' => $idUser, 'id' => $idPost));
+		$this->DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_MEDIA, array('id' => $idPhoto));
+		return $this->DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_POST, array('userid' => $idUser, 'id' => $idPost));
 	}
 
 	public function deleteFileByIdUser($idFile, $idUser, $idPost){
-		$this->DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_MEDIA, array('id' => $idFile));
-		return $this->DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_POST, array('userid' => $idUser, 'id' => $idPost));
+		$this->DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_MEDIA, array('id' => $idFile));
+		return $this->DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_POST, array('userid' => $idUser, 'id' => $idPost));
 	}
 
 	public function deleteMovieByIdUser($idMovie, $idUser, $idPost){
-		$this->DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_MEDIA, array('id' => $idMovie));
-		return $this->DB->delete_records(TableResoucer::$TABLE_PAGE_COMMUNITY_POST, array('userid' => $idUser, 'id' => $idPost));
+		$this->DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_MEDIA, array('id' => $idMovie));
+		return $this->DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY_POST, array('userid' => $idUser, 'id' => $idPost));
 	}
 
 	public function getListNameUser($notUser){
@@ -383,75 +383,75 @@ class WebgdCommunityDao{
 	}
 
 	public function searchMentalMapByCommunityById($idMap){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_LINKS, array('post'=> $idMap));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_LINKS, array('post'=> $idMap));
 	}
 
 	public function searchIconeByCommunityById($idGlossary){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_LINKS, array('post'=> $idGlossary));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_LINKS, array('post'=> $idGlossary));
 	}
 
 	public function searchGlossaryByCommunityById($idCommunity, $idGlossary){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_GLOSSARY, array('community' => $idCommunity, 'id'=> $idGlossary));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_GLOSSARY, array('community' => $idCommunity, 'id'=> $idGlossary));
 	}
 
 	public function searchGlossaryById($idGlossary){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_GLOSSARY, array('id'=> $idGlossary));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_GLOSSARY, array('id'=> $idGlossary));
 	}
 
 	public function searchGlossaryUserVotation($idGlossary,$idUser){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_GLOSSARRY_VOTACAO, array('glossarryid'=> $idGlossary, 'userid' => $idUser));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_GLOSSARRY_VOTACAO, array('glossarryid'=> $idGlossary, 'userid' => $idUser));
 	}
 
 	public function searchLikeDislikeUserVotation($idPost,$idUser){                
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_LIKEDISLIKE, array('postid'=> $idPost, 'userid' => $idUser));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_LIKEDISLIKE, array('postid'=> $idPost, 'userid' => $idUser));
 	}
 
 	public function searchMentalMapByCommunityByIdByUser($idCommunity, $idMap, $idUser){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_POST, array('community' => $idCommunity, 'id'=> $idMap, 'userid' => $idUser));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_POST, array('community' => $idCommunity, 'id'=> $idMap, 'userid' => $idUser));
 	}
 
 	public function searchIconeByCommunityByIdByUser($idCommunity, $idIcone, $idUser){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_POST, array('community' => $idCommunity, 'id'=> $idIcone, 'userid' => $idUser));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_POST, array('community' => $idCommunity, 'id'=> $idIcone, 'userid' => $idUser));
 	}
 
 	public function searchGlossaryByCommunityByIdByUser($idCommunity, $idGlo, $idUser){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_ICONE, array('community' => $idCommunity, 'id'=> $idGlo, 'userid' => $idUser));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_ICONE, array('community' => $idCommunity, 'id'=> $idGlo, 'userid' => $idUser));
 	}
         public function findPageById($id){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGINA, array('id'=>$id));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGINA, array('id'=>$id));
 	}
 
 	public function findCommunityById($id){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY, array('id'=>$id));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY, array('id'=>$id));
 	}
         
 
 	public function findUserInCommunityById($idCommunity, $userid){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY_USER, array('community' => $idCommunity, 'userid'=> $userid));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY_USER, array('community' => $idCommunity, 'userid'=> $userid));
 	}
 
 	public function findUserCreatorCommunityById($community, $userid, $creator = 1){
-		return $this->DB->get_record(TableResoucer::$TABLE_PAGE_COMMUNITY, array('id' => $community, 'userid' => $userid));
+		return $this->DB->get_record(TableResouces::$TABLE_PAGE_COMMUNITY, array('id' => $community, 'userid' => $userid));
 	}
         
 
 	public function deleteRecordByTablePageOrder(){
-		$this->deleteRecordByTable(TableResoucer::$TABLE_PAGE_ORDER);
+		$this->deleteRecordByTable(TableResouces::$TABLE_PAGE_ORDER);
 	}
 
 	public function insertRecordInTablePageOrder($paginaOrder, $returnId = true, $bulk = false){
-		return $this->DB->insert_record(TableResoucer::$TABLE_PAGE_ORDER, $paginaOrder, $returnId, $bulk);
+		return $this->DB->insert_record(TableResouces::$TABLE_PAGE_ORDER, $paginaOrder, $returnId, $bulk);
 	}
 
 	public function insertRecordInTableCommunityPost($post, $returnId = true, $bulk = false){
-		return $this->DB->insert_record(TableResoucer::$TABLE_PAGE_COMMUNITY_POST, $post, $returnId, $bulk);
+		return $this->DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_POST, $post, $returnId, $bulk);
 	}
 
 	public function getRecordsTableCommunityPost($idCommunity){
 		$sql = "SELECT
 			bw.message,bw.time, u.id as userid, u.firstname as username
 		FROM
-			{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_POST." bw
+			{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_POST." bw
 		INNER JOIN
   			{$this->CFG->prefix}user u on
 			bw.userid = u.id
@@ -467,7 +467,7 @@ class WebgdCommunityDao{
 		$sql = "SELECT
 			bwc.*, u.id as userid, u.firstname as username
 		FROM
-			{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_FILE." bwc
+			{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_FILE." bwc
 		INNER JOIN
   			{$this->CFG->prefix}user u on
 			bwc.userid = u.id
@@ -484,9 +484,9 @@ class WebgdCommunityDao{
 		$sql = "select
 					p.id, p.nome, po.parent
 				from
-					{$this->CFG->prefix}".TableResoucer::$TABLE_PAGINA." p
+					{$this->CFG->prefix}".TableResouces::$TABLE_PAGINA." p
 				LEFT join
-					{$this->CFG->prefix}".TableResoucer::$TABLE_PAGINA_order." po on
+					{$this->CFG->prefix}".TableResouces::$TABLE_PAGINA_order." po on
 					p.id = po.page
 				where
 				   po.parent = $idParent and p.habilitado = $habilitado and p.visivel = $visivel
@@ -499,9 +499,9 @@ class WebgdCommunityDao{
 		$sql = "select
 					p.id, p.nome, po.parent
 				from
-					{$this->CFG->prefix}".TableResoucer::$TABLE_PAGINA." p
+					{$this->CFG->prefix}".TableResouces::$TABLE_PAGINA." p
 				LEFT join
-					{$this->CFG->prefix}".TableResoucer::$TABLE_PAGINA_order." po on
+					{$this->CFG->prefix}".TableResouces::$TABLE_PAGINA_order." po on
 					p.id = po.page
 				where
 				   po.parent = $idParent
@@ -514,9 +514,9 @@ class WebgdCommunityDao{
 		$sql = "select
 					p.id, p.nome, po.parent
 				from
-					{$this->CFG->prefix}".TableResoucer::$TABLE_PAGINA." p
+					{$this->CFG->prefix}".TableResouces::$TABLE_PAGINA." p
 				LEFT join
-					{$this->CFG->prefix}".TableResoucer::$TABLE_PAGINA_order." po on
+					{$this->CFG->prefix}".TableResouces::$TABLE_PAGINA_order." po on
 					p.id = po.page
 				where
    					(po.parent = 0 or po.parent is null) and p.habilitado = $habilitado and p.visivel = $visivel
@@ -529,9 +529,9 @@ class WebgdCommunityDao{
 		$sql = "select
 					p.id, p.nome, po.parent
 				from
-					{$this->CFG->prefix}".TableResoucer::$TABLE_PAGINA." p
+					{$this->CFG->prefix}".TableResouces::$TABLE_PAGINA." p
 				LEFT join
-					{$this->CFG->prefix}".TableResoucer::$TABLE_PAGINA_order." po on
+					{$this->CFG->prefix}".TableResouces::$TABLE_PAGINA_order." po on
 					p.id = po.page
 				where
    					po.parent = 0 or po.parent is null
@@ -545,7 +545,7 @@ class WebgdCommunityDao{
 		$sql = "select
 					wc.id,wc.name as name, u.firstname as user, u.id as user_id
 				from
-					{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY." wc
+					{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY." wc
 				inner join
 					{$this->CFG->prefix}user u on
 					wc.userid = u.id";
@@ -556,12 +556,12 @@ class WebgdCommunityDao{
 		$sql = "select
 					wc.id,wc.name as name, u.firstname as user, u.id as user_id
 				from
-					{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_USER." wcu
+					{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_USER." wcu
 				inner join
 					{$this->CFG->prefix}user u on
 					wcu.userid = u.id
 				inner join
-					{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY." wc on
+					{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY." wc on
 					wcu.community = wc.id
 				where
 					wcu.userid = $idUser";
@@ -575,7 +575,7 @@ class WebgdCommunityDao{
       $sql = "SELECT
         u.email as email
       FROM
-        {$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_USER." cm
+        {$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_USER." cm
       INNER JOIN
           {$this->CFG->prefix}user u on
           cm.userid = u.id
@@ -591,7 +591,7 @@ class WebgdCommunityDao{
       $sql = "SELECT
         cm.id, u.id as userid, u.firstname as username
       FROM
-        {$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_USER." cm
+        {$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_USER." cm
       INNER JOIN
           {$this->CFG->prefix}user u on
           cm.userid = u.id
@@ -606,7 +606,7 @@ class WebgdCommunityDao{
       $sql = "SELECT
         cm.id, u.id as userid, u.firstname as username
       FROM
-        {$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_USER." cm
+        {$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_USER." cm
       INNER JOIN
           {$this->CFG->prefix}user u on
           cm.userid = u.id
@@ -619,11 +619,11 @@ class WebgdCommunityDao{
 
     
     public function insertRecordInTableCommunityText($postText, $returnId = true, $bulk = false) {
-        return $this->DB->insert_record(TableResoucer::$TABLE_PAGE_COMMUNITY_TEXT, $postText, $returnId, $bulk);
+        return $this->DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_TEXT, $postText, $returnId, $bulk);
     }
 
     public function insertRecordInTableCommunityMedia($postMedia, $returnId = true, $bulk = false) {
-        return $this->DB->insert_record(TableResoucer::$TABLE_PAGE_COMMUNITY_MEDIA, $postMedia, $returnId, $bulk);
+        return $this->DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_MEDIA, $postMedia, $returnId, $bulk);
     }
 
     public function getAllCommunityPost($idCommunity) {
@@ -631,7 +631,7 @@ class WebgdCommunityDao{
         $sql = "SELECT
 			pt.id, pt.time, pt.type, u.id as userid, u.firstname as username
 		FROM
-			{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_POST." pt
+			{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_POST." pt
 		INNER JOIN
 				{$this->CFG->prefix}user u on
 				pt.userid = u.id
@@ -649,7 +649,7 @@ class WebgdCommunityDao{
     $sql = "SELECT
 			pt.id, pt.time, pt.type, u.id as userid, u.firstname as username
 		FROM
-			{$this->CFG->prefix}".TableResoucer::$TABLE_PAGE_COMMUNITY_POST." pt
+			{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_POST." pt
 		INNER JOIN
 				{$this->CFG->prefix}user u on
 				pt.userid = u.id
@@ -663,6 +663,6 @@ class WebgdCommunityDao{
     
 
     public function insertRecordInTablePostComment($postComment, $returnId = true, $bulk = false) {
-        return $this->DB->insert_record(TableResoucer::$TABLE_PAGE_COMMUNITY_POST_COMMENT, $postComment, $returnId, $bulk);
+        return $this->DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_POST_COMMENT, $postComment, $returnId, $bulk);
     }
 }

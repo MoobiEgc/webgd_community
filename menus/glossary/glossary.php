@@ -83,7 +83,7 @@ if ($data = $mform->get_data()) {
                 
 		$msg = "Ocorreu um erro ao editar o glossario";
 
-		if($DB->update_record(TableResoucer::$TABLE_PAGE_COMMUNITY_GLOSSARY, $glossary)){
+		if($DB->update_record(TableResouces::$TABLE_PAGE_COMMUNITY_GLOSSARY, $glossary)){
 			$msg = "Termo editado com sucesso";
 		}
 	}else{
@@ -144,7 +144,7 @@ if ($data = $mform->get_data()) {
 
 		try{
 			$transaction = $DB->start_delegated_transaction();
-			$DB->insert_record(TableResoucer::$TABLE_PAGE_COMMUNITY_GLOSSARY, $glossary);
+			$DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_GLOSSARY, $glossary);
 			$transaction->allow_commit();
 			$msg = "Termo registrado com sucesso";
 		} catch(Exception $e) {
