@@ -1,0 +1,39 @@
+tabelas:
+
+webgd_community -> _cp
+
+block_webgd_cp_answer_question -> block_webgd_cp_answer_q
+
+block_webgd_cp_file_community -> block_webgd_cp_file_communit
+
+block_webgd_cp_movie_community-> block_webgd_cp_movie_cp
+block_webgd_cp_photo_community-> block_webgd_cp_photo_cp
+block_webgd_cp_usuario_votacao_glossarry -> block_webgd_cp_usu_vot_glos
+block_webgd_cp_post_user_comment -> block_webgd_cp_post_user_com
+
+colunas:
+
+videoTermo -> video_termo
+videoConceito -> video_conceito
+videoExemplo -> video_exemplo
+totalVotos -> total_votos
+totalVotosSim -> total_votos_sim
+totalVotosNao -> total_votos_nao	
+
+
+
+refatorados no código pelas constantes:
+public static $TABLE_PAGINA = 'block_webgd_pagina';
+public static $TABLE_PAGE_ORDER = 'block_webgd_pagina_order';
+public static $TABLE_PAGE_COMMUNITY = 'block_webgd_community';
+public static $TABLE_PAGE_COMMUNITY_USER = 'block_webgd_community_user';
+public static $TABLE_PAGE_COMMUNITY_POST = 'block_webgd_community_post';
+public static $TABLE_PAGE_COMMUNITY_FILE = 'block_webgd_community_file';
+public static $TABLE_PAGE_COMMUNITY_QUESTION = 'block_webgd_community_question';
+public static $TABLE_PAGE_COMMUNITY_ANSWER_QUESTION = 'block_webgd_community_answer_question';
+public static $TABLE_PAGE_COMMUNITY_ANSWER_QUESTION_USER = 'block_webgd_community_answer_question_user';
+public static $TABLE_PAGE_COMMUNITY_MENTAL_MAP = 'block_webgd_community_mental_map';
+public static $TABLE_PAGE_COMMUNITY_GLOSSARY = 'block_webgd_community_glossarry';
+public static $TABLE_PAGE_COMMUNITY_MOVIE_COMMUNITY = 'block_webgd_community_movie_community';
+public static $TABLE_PAGE_COMMUNITY_PHOTO_COMMUNITY = 'block_webgd_community_photo_community';
+
