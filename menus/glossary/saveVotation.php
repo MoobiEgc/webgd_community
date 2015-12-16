@@ -3,7 +3,7 @@
   global $USER, $CFG, $DB;
   require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
   require_once($CFG->dirroot.'/blocks/webgd_community/commons/TableResouces.php');
-
+require_login(1);
 	$idGlossario= $_POST['idGlossario'];
   $voto = $_POST['votacao'];
 

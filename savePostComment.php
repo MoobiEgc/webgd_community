@@ -2,7 +2,7 @@
 require_once(dirname(__FILE__) . '/../../config.php');
 require_once($CFG->dirroot.'/blocks/webgd_community/commons/TableResouces.php');
 require_once($CFG->dirroot.'/blocks/webgd_community/menus/Commons.php');
-
+require_login(1);
 global $USER,$DB;
 
 $idPost = optional_param('post_id_comment', 0, PARAM_INT);

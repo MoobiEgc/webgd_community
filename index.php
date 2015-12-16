@@ -26,7 +26,7 @@ require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/dao/WebgdCommunity
 require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/ImageResources.php');
 require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/CssResources.php');
 require_once($CFG->dirroot.'/blocks/webgd_community/menus/Commons.php');
-
+require_login(1);
 global $USER, $DB, $CFG;
 
 $PAGE->set_url('/course/index.php');
