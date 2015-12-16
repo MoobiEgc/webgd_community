@@ -563,9 +563,9 @@ class Commons {
       $userfields = user_picture::fields('u', array('username'));
       $sql = "SELECT $userfields
               FROM {user} u
-              WHERE u.id = " . $userid;
+              WHERE u.id = ?" ;
 
-      $users = $DB->get_records_sql($sql, array(), 0, 50);
+      $users = $DB->get_records_sql($sql, array($userid), 0, 50);
 
       return $users;
 

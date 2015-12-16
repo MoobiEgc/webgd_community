@@ -49,11 +49,11 @@ class WebgdCommunityDao{
 		{$this->CFG->prefix}user u on
 			u.id = pt.userid
 		where
-		   	 pt.community = $idCommunity  and pt.type = '$type'
+		   	 pt.community = ?  and pt.type = ?
 		order by
 			pt.time desc";
 
-		return $this->DB->get_records_sql($sql);
+		return $this->DB->get_records_sql($sql,array($idCommunity,$type));
 
 	}
 
@@ -66,11 +66,11 @@ class WebgdCommunityDao{
 		{$this->CFG->prefix}user u on
 			u.id = wcf.userid
 		where
-		   	 wcf.community = $idCommunity  and u.id = $userid
+		   	 wcf.community = ?  and u.id = ?
 		order by
 			wcf.timecreated desc";
 
-		return $this->DB->get_records_sql($sql);
+		return $this->DB->get_records_sql($sql,array($idCommunity,$userid));
 
 	}
 
@@ -83,11 +83,11 @@ class WebgdCommunityDao{
 		{$this->CFG->prefix}user u on
 			u.id = wcf.userid
 		where
-		   	 wcf.community = $idCommunity  and u.id = $userid
+		   	 wcf.community = ?  and u.id = ?
 		order by
 			wcf.timecreated desc";
 
-		return $this->DB->get_records_sql($sql);
+		return $this->DB->get_records_sql($sql,array($idCommunity,$userid));
 
 	}
 
@@ -103,11 +103,11 @@ class WebgdCommunityDao{
 		{$this->CFG->prefix}user u on
 			u.id = pt.userid
 		where
-				pt.community = $idCommunity
+				pt.community = ?
 		order by
 			pt.time desc";
 
-		return $this->DB->get_records_sql($sql);
+		return $this->DB->get_records_sql($sql,array($idCommunity));
 	}
 
 	public function myQuestionsByCommunity($idCommunity,$userid){
@@ -122,11 +122,11 @@ class WebgdCommunityDao{
 		{$this->CFG->prefix}user u on
 			u.id = pt.userid
 		where
-		   	 pt.community = $idCommunity  and u.id = $userid
+		   	 pt.community = ?  and u.id = ?
 		order by
 			pt.time desc";
 
-		return $this->DB->get_records_sql($sql);
+		return $this->DB->get_records_sql($sql,array($idCommunity,$userid));
 	}
 
 	public function mentalMapsByCommunity($idCommunity){
@@ -143,10 +143,10 @@ class WebgdCommunityDao{
 		{$this->CFG->prefix}user u on
 			wcq.userid = u.id
 		where
-			wcq.community = $idCommunity
+			wcq.community = ?
 		order by
 			wcq.time desc";
-		return $this->DB->get_records_sql($sql);
+		return $this->DB->get_records_sql($sql, array($idCommunity));
 	}
 
 	public function iconsByCommunity($idCommunity){
@@ -165,11 +165,11 @@ class WebgdCommunityDao{
 		{$this->CFG->prefix}user u on
 			u.id = pt.userid
 		where
-		   	 pt.community = $idCommunity and pt.type = '$type'
+		   	 pt.community = ? and pt.type = ?
 		order by
 			pt.time desc";
 
-		return $this->DB->get_records_sql($sql);
+		return $this->DB->get_records_sql($sql,array($idCommunity,$type));
 	}
 
 	public function linksByCommunity($idCommunity, $userid, $type){
@@ -184,11 +184,11 @@ class WebgdCommunityDao{
 		{$this->CFG->prefix}user u on
 			u.id = pt.userid
 		where
-		   	 pt.community = $idCommunity  and u.id = $userid and pt.type = '$type'
+		   	 pt.community = ?  and u.id = ? and pt.type = ?
 		order by
 			pt.time desc";
 
-		return $this->DB->get_records_sql($sql);
+		return $this->DB->get_records_sql($sql,array($idCommunity,$userid,$type));
 	}
 
 	public function glossarysByCommunity($idCommunity){
@@ -213,10 +213,10 @@ class WebgdCommunityDao{
 			gls.userid = u.id";
 			if($case == 0){
 		$sql .= " where
-			gls.termo COLLATE UTF8_GENERAL_CI LIKE '".$like."%' AND gls.community =". $idCommunity;
+			gls.termo COLLATE UTF8_GENERAL_CI LIKE '$like%' AND gls.community = $idCommunity ";
 		}
 		else {
-			$sql .= " where gls.community =". $idCommunity;
+			$sql .= " where gls.community = $idCommunity ";
 		}
 		return $this->DB->get_records_sql($sql);
 	}
@@ -240,11 +240,11 @@ class WebgdCommunityDao{
 		{$this->CFG->prefix}user u on
 			wcq.userid = u.id
 		where
-			wcq.community = $idCommunity and wcq.userid = $userid
+			wcq.community = ? and wcq.userid = ?
 		order by
 			wcq.time desc";
 
-		return $this->DB->get_records_sql($sql);
+		return $this->DB->get_records_sql($sql,array($idCommunity,$userid));
 	}
 
 	public function postCommentById($idPost){
@@ -294,9 +294,9 @@ class WebgdCommunityDao{
 			{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION." aq on
 			aqu.answer_question = aq.id
 		where
-			aq.question = $idQuestion and aqu.userid = $userid";
+			aq.question = ? and aqu.userid = ?";
 
-		return $this->DB->execute($sql);
+		return $this->DB->execute($sql,array($idQuestion,$userid));
 	}
 
 	public function getTotalRespondidasEnquete($idQuestion){
@@ -307,9 +307,9 @@ class WebgdCommunityDao{
 		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION." aq on
 			aqu.answer_question = aq.id
 		where
-			aq.question = $idQuestion";
+			aq.question = ?";
 
-		return sizeof($this->DB->get_records_sql($sql));
+		return sizeof($this->DB->get_records_sql($sql,array($idQuestion)));
 	}
 
 	public function getTotalRespondidasEnqueteByPergunta($idPergunta){
@@ -317,9 +317,9 @@ class WebgdCommunityDao{
 		from
 		{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION_USER." aqu
 		where
-			aqu.answer_question = $idPergunta";
+			aqu.answer_question = ?";
 
-		return sizeof($this->DB->get_records_sql($sql));
+		return sizeof($this->DB->get_records_sql($sql,array($idPergunta)));
 	}
 
 	public function searchQuestionByCommunityById($idQuestion){
@@ -456,10 +456,10 @@ class WebgdCommunityDao{
   			{$this->CFG->prefix}user u on
 			bw.userid = u.id
    		WHERE
-   		   bw.community = $idCommunity
+   		   bw.community = ?
    		ORDER BY
    		   bw.time desc ";
-   		return $this->DB->get_records_sql($sql);
+   		return $this->DB->get_records_sql($sql,array($idCommunity));
 	}
 
 
@@ -489,10 +489,10 @@ class WebgdCommunityDao{
 					{$this->CFG->prefix}".TableResouces::$TABLE_PAGINA_order." po on
 					p.id = po.page
 				where
-				   po.parent = $idParent and p.habilitado = $habilitado and p.visivel = $visivel
+				   po.parent = ? and p.habilitado = ? and p.visivel = ?
 				order by
  					 po.id, po.parent";
-		return $this->DB->get_records_sql($sql);
+		return $this->DB->get_records_sql($sql,array($idParent,$habilitado,$visivel));
 
 	}
 	public function findChildren($idParent){
@@ -504,10 +504,10 @@ class WebgdCommunityDao{
 					{$this->CFG->prefix}".TableResouces::$TABLE_PAGINA_order." po on
 					p.id = po.page
 				where
-				   po.parent = $idParent
+				   po.parent = ?
 				order by
 				  po.parent";
-		return $this->DB->get_records_sql($sql);
+		return $this->DB->get_records_sql($sql,array($idParent));
 	}
 
 	public function getListFatherByHabilityAndVisible($visivel = 1, $habilitado = 1){
@@ -519,10 +519,10 @@ class WebgdCommunityDao{
 					{$this->CFG->prefix}".TableResouces::$TABLE_PAGINA_order." po on
 					p.id = po.page
 				where
-   					(po.parent = 0 or po.parent is null) and p.habilitado = $habilitado and p.visivel = $visivel
+   					(po.parent = 0 or po.parent is null) and p.habilitado = ? and p.visivel = ?
 				order by
  					 po.id, po.parent";
-		return $this->DB->get_records_sql($sql);
+		return $this->DB->get_records_sql($sql,array($habilitado,$visivel));
 	}
 
 	public function getListFather(){
@@ -564,8 +564,8 @@ class WebgdCommunityDao{
 					{$this->CFG->prefix}".TableResouces::$TABLE_PAGE_COMMUNITY." wc on
 					wcu.community = wc.id
 				where
-					wcu.userid = $idUser";
-		return $this->DB->get_records_sql($sql);
+					wcu.userid = ?";
+		return $this->DB->get_records_sql($sql,array($idUser));
 	}
         
     
@@ -580,10 +580,10 @@ class WebgdCommunityDao{
           {$this->CFG->prefix}user u on
           cm.userid = u.id
         WHERE
-            cm.community = $id
+            cm.community = ?
         ORDER BY
             cm.id asc ";
-          return $this->DB->get_records_sql($sql);
+          return $this->DB->get_records_sql($sql,array($id));
     }
 
     public function findCommunityParticipantsById($id) {
@@ -596,10 +596,10 @@ class WebgdCommunityDao{
           {$this->CFG->prefix}user u on
           cm.userid = u.id
         WHERE
-            cm.community = $id
+            cm.community = ?
         ORDER BY
             cm.id asc ";
-          return $this->DB->get_records_sql($sql);
+          return $this->DB->get_records_sql($sql,array($id));
     }
 
     public function participanteInCommunity($idParticipante, $idCommunity) {
@@ -611,10 +611,10 @@ class WebgdCommunityDao{
           {$this->CFG->prefix}user u on
           cm.userid = u.id
         WHERE
-            cm.community = $idCommunity and cm.userid = $idParticipante
+            cm.community = ? and cm.userid = ?
         ORDER BY
             cm.id asc ";
-      return $this->DB->get_records_sql($sql);
+      return $this->DB->get_records_sql($sql,array($idCommunity,$idParticipante));
     }
 
     
@@ -636,10 +636,10 @@ class WebgdCommunityDao{
 				{$this->CFG->prefix}user u on
 				pt.userid = u.id
 			WHERE
-					pt.community = ".$idCommunity."
+					pt.community = ?
 			ORDER BY
 					pt.time desc ";
-        return $this->DB->get_records_sql($sql);
+        return $this->DB->get_records_sql($sql,array($idCommunity));
     }
 
     public function getAllCommunityPostSince($idCommunity,$ultimo_post) {
@@ -654,10 +654,10 @@ class WebgdCommunityDao{
 				{$this->CFG->prefix}user u on
 				pt.userid = u.id
 			WHERE
-					pt.community = ".$idCommunity." and pt.id > ".$ultimo_post."
+					pt.community = ? and pt.id > ?
 			ORDER BY
 					pt.time desc ";
-        return $this->DB->get_records_sql($sql);
+        return $this->DB->get_records_sql($sql,array($idCommunity,$ultimo_post));
     }
 
     
