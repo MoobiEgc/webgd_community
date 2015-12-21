@@ -68,8 +68,8 @@ if ($data = $mform->get_data()) {
             $msg = get_string('msgComunidadeCadastradaSucesso', 'block_webgd_community');
         }
 
-
-        foreach ($_POST['users'] as $idUser) {
+        $users = optional_param_array('users', 0, PARAM_INT);
+        foreach($users as $idUser){
             $communutyUser = new stdClass();
             $communutyUser->community = $idCommunity;
             $communutyUser->admin = 0;
