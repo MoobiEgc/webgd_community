@@ -23,8 +23,8 @@ global $USER;
 if ($_FILES['fileUpload']) {
 
     $random = rand();
-    $name = $random . '_' . $_POST['name'];
-
+    $name = $random . '_' . optional_param('name', '', PARAM_TEXT);
+    
     move_uploaded_file($_FILES['fileUpload']['tmp_name'], $CFG->dataroot.'/blocks/'.'webgd_community/'.$name);
     echo $CFG->dataroot.'/blocks/'.'webgd_community/'.$name;
 

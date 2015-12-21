@@ -97,8 +97,8 @@ if ($data = $mform->get_data()) {
               $DB->delete_records(TableResouces::$TABLE_PAGE_COMMUNITY, array('id'=>$pt->id));
             }
           }
-
-          foreach ($_POST['users'] as $idUser) {
+          $users = optional_param_array('users', 0, PARAM_INT);
+            foreach($users as $idUser){
               $communutyUser = new stdClass();
               $communutyUser->community = $data->id;
               $communutyUser->admin = 0;
@@ -140,8 +140,8 @@ if ($data = $mform->get_data()) {
               $msg = get_string('msgComunidadeCadastradaSucesso', 'block_webgd_community');
           }
 
-
-          foreach ($_POST['users'] as $idUser) {
+          $users = optional_param_array('users', 0, PARAM_INT);
+            foreach($users as $idUser){
               $communutyUser = new stdClass();
               $communutyUser->community = $idCommunity;
               $communutyUser->admin = 0;

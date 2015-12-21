@@ -5,8 +5,8 @@
   require_once($CFG->dirroot.'/blocks/webgd_community/commons/TableResouces.php');
   require_login(1);
   global $USER, $DB, $CFG;
-  $idPost= $_POST['idPost'];
-  $voto = $_POST['votacao'];
+  $idPost= optional_param('idPost', 0, PARAM_INT);
+  $voto = optional_param('votacao', 0, PARAM_INT);
 
   if($voto == 0){
     $voto = -1;

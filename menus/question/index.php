@@ -62,7 +62,7 @@ if($idQuestion){
 
 				$object = new stdClass();
 				$object->userid = $USER->id;
-				$object->answer_question = $_POST['resposta'];
+				$object->answer_question = optional_param('resposta', 0, PARAM_INT);
 				$object->time = time();
 				$DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION_USER, $object);
 
