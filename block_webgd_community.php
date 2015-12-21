@@ -128,8 +128,8 @@ class block_webgd_community extends block_list {
 
     public function gerateLink($url, $nome, $image, $video) {
         global $CFG;
-        $imgLibras = $CFG->wwwroot . '/theme/clean/pix/icons/mao-libras.png';
-        $imgSignwrigth = $CFG->wwwroot . '/theme/clean/pix/icons/mao-signwrigth.png';
+        $imgLibras = $CFG->wwwroot . '/theme/moobi/pix/icons/mao-libras.png';
+        $imgSignwrigth = $CFG->wwwroot . '/theme/moobi/pix/icons/mao-signwrigth.png';
 
         $redhand = $CFG->wwwroot . "/blocks/webgd/redhand/" . $video . ".png";
 
