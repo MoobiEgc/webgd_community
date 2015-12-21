@@ -35,14 +35,14 @@ if ($idFile) {
     } else {
         echo $OUTPUT->heading('<span class="titulo_list">' .
                 '<a href="' . $url . '" >' .
-                $OUTPUT->heading($community->name , 2, 'titulo_comunidade') .
+                $OUTPUT->heading($community->name, 2, 'titulo_comunidade') .
                 '</a></span><br/>');
         echo "<div class='subTitle'>Editar Vídeo</div><br/>";
     }
 } else {
     echo $OUTPUT->heading('<span class="titulo_list">' .
             '<a href="' . $url . '" >' .
-            $OUTPUT->heading($community->name , 2, 'titulo_comunidade') .
+            $OUTPUT->heading($community->name, 2, 'titulo_comunidade') .
             '</a></span><br/>');
     echo "<div class='subTitle'>Cadastar Vídeo</div><br/>";
 }
@@ -73,34 +73,33 @@ if ($data = $mform->get_data()) {
 
         if ($mform->save_file('attachment', $path, true)) {
 
-          try{
+            try {
 
-            $transaction = $DB->start_delegated_transaction();
-
-
-            $post = new stdClass();
-            $post->community = $idCommunity;
-            $post->userid = $USER->id;
-            $post->time = time();
-            $post->type = 'movie';
-
-            $idPost = $webgdDao->insertRecordInTableCommunityPost($post);
+                $transaction = $DB->start_delegated_transaction();
 
 
-            $arquivo = new stdClass();
-            $arquivo->post = $idPost;
-            $arquivo->name = $data->nome;
-            $arquivo->path = $path;
+                $post = new stdClass();
+                $post->community = $idCommunity;
+                $post->userid = $USER->id;
+                $post->time = time();
+                $post->type = 'movie';
 
-            $webgdDao->insertRecordInTableCommunityMedia($arquivo);
+                $idPost = $webgdDao->insertRecordInTableCommunityPost($post);
 
-            $transaction->allow_commit();
 
-            $msg = 'Video Cadastrado com sucesso';
+                $arquivo = new stdClass();
+                $arquivo->post = $idPost;
+                $arquivo->name = $data->nome;
+                $arquivo->path = $path;
 
-          }catch(Exception $e){
-            $transaction->rollback($e);
-          }
+                $webgdDao->insertRecordInTableCommunityMedia($arquivo);
+
+                $transaction->allow_commit();
+
+                $msg = 'Video Cadastrado com sucesso';
+            } catch (Exception $e) {
+                $transaction->rollback($e);
+            }
         }
     }
     redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity", $msg, 10);

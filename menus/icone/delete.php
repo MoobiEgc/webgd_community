@@ -1,7 +1,8 @@
 <?php
+
 require_once(dirname(__FILE__) . '/../../../../config.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/commons/TableResouces.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/commons/TableResouces.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
 
 global $USER;
 
@@ -24,15 +25,15 @@ $webgdCommunityDao = new WebgdCommunityDao();
 
 $msg = 'Icone não Encontrado';
 
-if($webgdCommunityDao->searchIconeByCommunityByIdByUser($idCommunity, $idGlosario, $USER->id)){
+if ($webgdCommunityDao->searchIconeByCommunityByIdByUser($idCommunity, $idGlosario, $USER->id)) {
 
-	$icone = $webgdCommunityDao->searchIconeByCommunityById($idGlosario);
+    $icone = $webgdCommunityDao->searchIconeByCommunityById($idGlosario);
 
-	$msg = 'Erro ao excluir icone';
+    $msg = 'Erro ao excluir icone';
 
-	if($webgdCommunityDao->deleteIconsByCommunityByIdByuser($icone->id, $USER->id, $icone->post)){
-		$msg = 'Icone deletado com sucesso';
-	}
+    if ($webgdCommunityDao->deleteIconsByCommunityByIdByuser($icone->id, $USER->id, $icone->post)) {
+        $msg = 'Icone deletado com sucesso';
+    }
 }
 
 redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity", $msg, 10);

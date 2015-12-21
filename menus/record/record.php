@@ -30,7 +30,7 @@ require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/CssResources.php
 
 require_login(1);
 
-global $USER,$CFG;
+global $USER, $CFG;
 
 $PAGE->requires->css(CssResources::HOME_COMMUNITY);
 
@@ -62,7 +62,7 @@ if ($idFile) {
 } else {
     echo $OUTPUT->heading('<span class="titulo_list">' .
             '<a href="' . $url . '" >' .
-            $OUTPUT->heading($community->name , 2, 'titulo_comunidade') .
+            $OUTPUT->heading($community->name, 2, 'titulo_comunidade') .
             '</a><br/></span>');
     echo "<div class='subTitle'>Gravar Vídeo</div>";
 }
@@ -73,7 +73,7 @@ if ($idFile) {
     <div style="float:left; width:45%;">
         <?php
         echo "<img src='" . $CFG->wwwroot . ImageResources::CAMERA . "' id='camera-me' style='cursor:pointer; width:90%;'>";
-         ?>
+        ?>
         <h4>Ao vivo</h4>
         <video autoplay muted style="width:95%; height:auto;"></video>
     </div>
@@ -81,7 +81,7 @@ if ($idFile) {
         <?php
         echo "<img src='" . $CFG->wwwroot . ImageResources::GRAVAR . "' id='record-me' style='cursor:pointer; width:45%;'>&nbsp;
               <img src='" . $CFG->wwwroot . ImageResources::PARAR . "' id='stop-me' style='cursor:pointer; width:45%;'>&nbsp;";
-         ?>
+        ?>
         <span id="elasped-time"></span>
         <h4>Gravado em .webm</h4>
     </div>
@@ -120,14 +120,14 @@ if ($idFile) {
 
         function toggleActivateRecordButton() {
 
-          $('#record-me').src = "../../lib/icones/menus/gravar.png";
+            $('#record-me').src = "../../lib/icones/menus/gravar.png";
         }
 
         function turnOnCamera(e) {
             e.target.disabled = true;
-              $('#record-me').src = "../../lib/icones/menus/gravar.png";
-              $('#camera-me').src = "../../lib/icones/menus/ligar_camera_inativo.png";
-              $('#stop-me').src = "../../lib/icones/menus/parar_desabilitado.png";
+            $('#record-me').src = "../../lib/icones/menus/gravar.png";
+            $('#camera-me').src = "../../lib/icones/menus/ligar_camera_inativo.png";
+            $('#stop-me').src = "../../lib/icones/menus/parar_desabilitado.png";
 
             video.controls = false;
 

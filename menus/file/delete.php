@@ -1,7 +1,8 @@
 <?php
+
 require_once(dirname(__FILE__) . '/../../../../config.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/commons/TableResouces.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/commons/TableResouces.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
 
 global $USER;
 
@@ -24,16 +25,16 @@ $webgdCommunityDao = new WebgdCommunityDao();
 
 $msg = 'Arquivo Não Encontrado';
 
-if($webgdCommunityDao->searchFileCommunityById($idCommunity, $idFile)){
+if ($webgdCommunityDao->searchFileCommunityById($idCommunity, $idFile)) {
 
-	$file = $webgdCommunityDao->searchFileById($idFile);
+    $file = $webgdCommunityDao->searchFileById($idFile);
 
-	if($webgdCommunityDao->deleteFileByIdUser($file->id, $USER->id, $file->post)){
+    if ($webgdCommunityDao->deleteFileByIdUser($file->id, $USER->id, $file->post)) {
 
-		$msg = 'Arquivo excluido com sucesso';
+        $msg = 'Arquivo excluido com sucesso';
 
-		unlink($file->path);
-	}
+        unlink($file->path);
+    }
 }
 
 redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity", $msg, 10);

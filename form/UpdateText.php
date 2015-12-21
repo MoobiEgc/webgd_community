@@ -17,7 +17,7 @@ class UpdateText extends moodleform {
         $mform->addElement('hidden', 'community', $this->_customdata['community']);
         $mform->setType('community', PARAM_NOTAGS);
 
-        $mform->addElement('textarea', 'message', "Post",array("rows"=> "10","cols" => "40  "));
+        $mform->addElement('textarea', 'message', "Post", array("rows" => "10", "cols" => "40  "));
         $mform->setType('message', PARAM_TEXT);
         $mform->addRule('message', "Você precisa inserir o texto do post", 'required', null, 'client');
 

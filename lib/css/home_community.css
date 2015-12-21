@@ -1,27 +1,27 @@
 .lista_home {
-	margin-left: 60px;
-	width: 500px !important;
+    margin-left: 60px;
+    width: 500px !important;
 }
 
 .titulo_list {
-	color: #41627F;
-	font-size: 24px;
+    color: #41627F;
+    font-size: 24px;
 }
 
 .subTitle {
 
-	text-align: left;
-	font-size: 14px !important;
-	color: #41627F;
-	clear: both;
+    text-align: left;
+    font-size: 14px !important;
+    color: #41627F;
+    clear: both;
 
 }
 
 .menu1 {
-	float: left;
-	font-size: 14px;
-	color: #41627F;
-	/*font-weight: bold;*/
+    float: left;
+    font-size: 14px;
+    color: #41627F;
+    /*font-weight: bold;*/
 }
 
 .menu {
@@ -30,81 +30,81 @@
 }
 
 .separador_menu {
-	float: left;
-	margin-left: 40px;
-	margin-right: 40px;
-	background-color: #E6E7E7;
-	width: 3px;
-	height: 120px;
+    float: left;
+    margin-left: 40px;
+    margin-right: 40px;
+    background-color: #E6E7E7;
+    width: 3px;
+    height: 120px;
 }
 
 .nome_menu {
-	margin-top: 3px;
+    margin-top: 3px;
 }
 
 .nome_menu a {
-	color: #41627F;
+    color: #41627F;
 }
 
 .titulo_comunidade {
-	float: left;
-	font-size: 18px !important;
+    float: left;
+    font-size: 18px !important;
 }
 
 .participar {
-	float: left;
-	margin-top: 10px;
-	margin-left: 70px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 70px;
 }
 
 .facebook-share-box {
-	width: 500px !important;
+    width: 500px !important;
 }
 
 .titulo_post {
-	display: table;
-	padding-top: 10px;
-	margin-left: 8px;
+    display: table;
+    padding-top: 10px;
+    margin-left: 8px;
 }
 
 .icone_user {
-	float: left;
+    float: left;
 }
 
 .nome_post {
-	margin-left: 15px;
-	float: left;
-	font-size: 12;
-	margin-top: 5px;
-	float: left;
+    margin-left: 15px;
+    float: left;
+    font-size: 12;
+    margin-top: 5px;
+    float: left;
 }
 
 .conteudo_post {
-	background-color: #E6E7E7;
-	padding-bottom: 10px;
+    background-color: #E6E7E7;
+    padding-bottom: 10px;
 }
 
 .conteudo_post:hover {
-	background-color: #FFFFFF;
+    background-color: #FFFFFF;
 }
 
 .data {
-	clear: both;
-	font-size: 10px;
+    clear: both;
+    font-size: 10px;
 }
 
 .informacoes_post {
-	margin-left: 55px;
+    margin-left: 55px;
 }
 
 .posts {
-	border: 3px solid #E6E7E7;
+    border: 3px solid #E6E7E7;
 }
 
 .nome_criador a {
-	color: #41627F !important;
-	font-size: 12;
-	font-weight: bold;
+    color: #41627F !important;
+    font-size: 12;
+    font-weight: bold;
 }
 
 .conteudo_mapa {
@@ -112,60 +112,60 @@
 }
 
 .nome_mapa a {
-	font-size: 18px;
-	color: #41627F !important;
-	font-weight: bold;
+    font-size: 18px;
+    color: #41627F !important;
+    font-weight: bold;
 }
 
 .titulo_mapa {
-	display: table;
-	margin-left: 8px;
+    display: table;
+    margin-left: 8px;
 }
 
 .icone_mapa {
-	margin-top: 10px;
-	float: left;
+    margin-top: 10px;
+    float: left;
 }
 
 .dados_mapa {
-	margin-left: 15px;
-	float: left;
-	font-size: 12;
-	margin-top: 5px;
-	float: left;
-	width: 440px;
+    margin-left: 15px;
+    float: left;
+    font-size: 12;
+    margin-top: 5px;
+    float: left;
+    width: 440px;
 }
 
 .separador_mapa {
-	margin-top: 15px;
-	margin-bottom: 15px;
-	background-color: #E6E7E7;
-	height: 3px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: #E6E7E7;
+    height: 3px;
 }
 
 .criado {
-	clear: both;
-	font-size: 12px;
+    clear: both;
+    font-size: 12px;
 }
 
 .data_edicao {
-	color: #707070;
-	font-size: 10px;
+    color: #707070;
+    font-size: 10px;
 }
 
 .botao_edicao {
-	float: right;
-	cursor: pointer;
+    float: right;
+    cursor: pointer;
 }
 .botao_excluir {
     float: right;
     margin-left: 5px;
-		cursor: pointer;
+    cursor: pointer;
 }
 .botao_download {
     float: right;
-		margin-left: 5px;
-		cursor: pointer;
+    margin-left: 5px;
+    cursor: pointer;
 }
 
 
@@ -176,137 +176,137 @@
 }
 
 .participantes_community{
-	background-color: #ECECEC;
-	color: #647D95;
-	font-size: 20px;
-	padding: 8px;
-	border: none;
+    background-color: #ECECEC;
+    color: #647D95;
+    font-size: 20px;
+    padding: 8px;
+    border: none;
 }
 
 #modal_participantes{
-	width:200px;
-	background: #FFF;
-	display: none;
+    width:200px;
+    background: #FFF;
+    display: none;
 }
 
 .modal_header{
-	height: 20px;
+    height: 20px;
 }
 
 .modal_header span{
-	display: block;
-	padding:6px;
-	font-weight: bold;
-	font-size: 15px;
+    display: block;
+    padding:6px;
+    font-weight: bold;
+    font-size: 15px;
 }
 
 .modal_header a{
-	float: right;
-	margin-right: 8px;
-	margin-top: 4px;
+    float: right;
+    margin-right: 8px;
+    margin-top: 4px;
 }
 
 .modal_content{
-	padding: 8px;
+    padding: 8px;
 }
 
 .multiselect{
-	margin-left: 265px;
+    margin-left: 265px;
 }
 
 .votacao{
-	margin-left: 53px;
+    margin-left: 53px;
 }
 
 .votacao img{
-	cursor:pointer;
+    cursor:pointer;
 }
 
 .estrela_votada{
-	border:1px solid #CCCCCC;
-	display: inline;
-	font-size: 10px;
-	padding: 5px 3px;
-	margin: 0 5px;
+    border:1px solid #CCCCCC;
+    display: inline;
+    font-size: 10px;
+    padding: 5px 3px;
+    margin: 0 5px;
 }
 
 .div_like{
-	text-align: right;
-	margin:8px;
+    text-align: right;
+    margin:8px;
 }
 
 .div_like img{
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .like_dislike{
-	border:1px solid #CCCCCC;
-	padding: 0 3px;
+    border:1px solid #CCCCCC;
+    padding: 0 3px;
 }
 
 /*VIDEOCSS*/
 
 .link{
-		cursor: pointer;
+    cursor: pointer;
 }
 
 .linkdisabled{
-		color: #AAA;
+    color: #AAA;
 }
 
 .mainBt img {
-		margin-top: 5px;
+    margin-top: 5px;
 }
 
 div.videodiv{
-		position: absolute;
-		top: 200px;
-		left: 300px;
-		width:512px;
-		height:288px;
+    position: absolute;
+    top: 200px;
+    left: 300px;
+    width:512px;
+    height:288px;
 }
 
 .comentarios{
-	padding-left: 30px;
+    padding-left: 30px;
 }
 
 #menu-tab{
-	display: block;
-	width: 100%;
-	margin-top: 30px;
-	margin-left: 0px;
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    margin-left: 0px;
 }
 #menu-tab li{
-	list-style: none;
-	float: left;
-	width: 70px;
-	border-top: 2px solid;
-	border-left: 2px solid;
-	border-right: 2px solid;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	text-align: center;
-	cursor: pointer;
+    list-style: none;
+    float: left;
+    width: 70px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+    border-right: 2px solid;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center;
+    cursor: pointer;
 }
 #menu-tab li.active{
-	color: #FFF;
-	background-color: #416280;
-	border-color: #416280;
+    color: #FFF;
+    background-color: #416280;
+    border-color: #416280;
 }
 .tab-glossary{
-	width: 100%;
-	clear: both;
+    width: 100%;
+    clear: both;
 }
 .tab-hide{
-	display: none;
+    display: none;
 }
 .div-tab-texto{
-	float: right;
-	width: 45%;
-	padding-left: 4%;
+    float: right;
+    width: 45%;
+    padding-left: 4%;
 }
 .tab-glossary-video video{
-	width: 50%;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
+    width: 50%;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 }

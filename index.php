@@ -1,4 +1,5 @@
 <?php
+
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -21,11 +22,11 @@
  */
 require_once(dirname(__FILE__) . '/../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/commons/TableResouces.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/ImageResources.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/CssResources.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/menus/Commons.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/commons/TableResouces.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/ImageResources.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/CssResources.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/menus/Commons.php');
 require_login(1);
 global $USER, $DB, $CFG;
 
@@ -39,30 +40,30 @@ echo $OUTPUT->header('themeselector');
 
 $webgdCommunityDao = new WebgdCommunityDao();
 
-if($listCommunity = $webgdCommunityDao->getListCommunity()){
-	echo '<span class="titulo_list">'.$OUTPUT->heading('Comunidades').'</span>';
-	echo '<div class="lista_home">';
-		echo '<span class="titulo_list"></span>';
-		foreach ($listCommunity as $community){
-			$participar = "";
-			$fechada = 0;
-			if(!$webgdCommunityDao->findUserInCommunityById($community->id, $USER->id)){
-                                if($community->close_community==1){
-                                    $participar = "<img class='botao_comunidade' src='".$CFG->wwwroot.ImageResources::COMUNIDADE_FECHADA."'>";
-																		$fechada = 1;
-                                }else{
-                                    $participar = "<div>".html_writer::tag('a', "<img class='botao_comunidade' src='".$CFG->wwwroot.ImageResources::PARTICIPAR_COMUNIDADE."'>", array('href' => "view.php?community={$community->id}&confirm=1"))."</div>";
-                                }
-			}else{
-                            if($community->close_community==1){
-                                    $participar = "<img class='botao_comunidade' src='".$CFG->wwwroot.ImageResources::COMUNIDADE_FECHADA."'>";
-                                }
-                        }
+if ($listCommunity = $webgdCommunityDao->getListCommunity()) {
+    echo '<span class="titulo_list">' . $OUTPUT->heading('Comunidades') . '</span>';
+    echo '<div class="lista_home">';
+    echo '<span class="titulo_list"></span>';
+    foreach ($listCommunity as $community) {
+        $participar = "";
+        $fechada = 0;
+        if (!$webgdCommunityDao->findUserInCommunityById($community->id, $USER->id)) {
+            if ($community->close_community == 1) {
+                $participar = "<img class='botao_comunidade' src='" . $CFG->wwwroot . ImageResources::COMUNIDADE_FECHADA . "'>";
+                $fechada = 1;
+            } else {
+                $participar = "<div>" . html_writer::tag('a', "<img class='botao_comunidade' src='" . $CFG->wwwroot . ImageResources::PARTICIPAR_COMUNIDADE . "'>", array('href' => "view.php?community={$community->id}&confirm=1")) . "</div>";
+            }
+        } else {
+            if ($community->close_community == 1) {
+                $participar = "<img class='botao_comunidade' src='" . $CFG->wwwroot . ImageResources::COMUNIDADE_FECHADA . "'>";
+            }
+        }
 
-			Commons::printListHomeCommunity($community, $participar,$fechada);
-	}
-	echo '<div>';
-}else{
-	echo get_string('nenhumaComunidadeRegistrada','block_webgd_community');
+        Commons::printListHomeCommunity($community, $participar, $fechada);
+    }
+    echo '<div>';
+} else {
+    echo get_string('nenhumaComunidadeRegistrada', 'block_webgd_community');
 }
 echo $OUTPUT->footer();

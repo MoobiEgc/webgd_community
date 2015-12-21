@@ -1,7 +1,8 @@
 <?php
+
 require_once(dirname(__FILE__) . '/../../../../config.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/commons/TableResouces.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/commons/TableResouces.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
 
 global $USER;
 
@@ -24,12 +25,12 @@ $webgdCommunityDao = new WebgdCommunityDao();
 
 $msg = 'Enquete não Encontrado';
 
-if($question = $webgdCommunityDao->searchQuestionByCommunityById($idQuestion)){
+if ($question = $webgdCommunityDao->searchQuestionByCommunityById($idQuestion)) {
 
-	$msg = 'Erro ao excluir enquete';
-	if($webgdCommunityDao->deleteQuestionByCommunityById($question->id, $USER->id, $question->post)){
-		$msg = 'Enquete deletada com sucesso';
-	}
+    $msg = 'Erro ao excluir enquete';
+    if ($webgdCommunityDao->deleteQuestionByCommunityById($question->id, $USER->id, $question->post)) {
+        $msg = 'Enquete deletada com sucesso';
+    }
 }
 
 redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity", $msg, 10);

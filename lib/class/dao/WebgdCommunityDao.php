@@ -41,67 +41,67 @@ class WebgdCommunityDao {
 
     public function mediaByCommunity($idCommunity, $userid, $type) {
         $sql = "SELECT pt.id, md.name, u.firstname, pt.time, u.id AS userid
-		  FROM {". TableResouces::$TABLE_PAGE_COMMUNITY_MEDIA ."} md
-		  JOIN {". TableResouces::$TABLE_PAGE_COMMUNITY_POST ."} pt ON md.post = pt.id
-		  JOIN {user} u ON u.id = pt.userid
-		 WHERE pt.community = ? 
+          FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_MEDIA . "} md
+          JOIN {" . TableResouces::$TABLE_PAGE_COMMUNITY_POST . "} pt ON md.post = pt.id
+          JOIN {user} u ON u.id = pt.userid
+         WHERE pt.community = ? 
                        AND pt.type = ?
-		 ORDER BY pt.time DESC";
+         ORDER BY pt.time DESC";
 
         return $this->DB->get_records_sql($sql, array($idCommunity, $type));
     }
 
     public function photosByCommunity($idCommunity, $userid) {
         $sql = "SELECT wcf.id, wcf.name, u.firstname, wcf.timecreated, u.id AS userid
-		  FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_PHOTO_COMMUNITY ."} wcf
-		  JOIN {user} u ON u.id = wcf.userid
-		 WHERE wcf.community = ?  
+          FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_PHOTO_COMMUNITY . "} wcf
+          JOIN {user} u ON u.id = wcf.userid
+         WHERE wcf.community = ?  
                        AND u.id = ?
-	      ORDER BY wcf.timecreated DESC";
+          ORDER BY wcf.timecreated DESC";
 
         return $this->DB->get_records_sql($sql, array($idCommunity, $userid));
     }
 
     public function moviesByCommunity($idCommunity, $userid) {
         $sql = "SELECT wcf.id, wcf.name, u.firstname, wcf.timecreated, u.id AS userid
-		  FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_MOVIE_COMMUNITY."}wcf
-		  JOIN {user} u ON u.id = wcf.userid
-		 WHERE wcf.community = ?  
+          FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_MOVIE_COMMUNITY . "}wcf
+          JOIN {user} u ON u.id = wcf.userid
+         WHERE wcf.community = ?  
                        AND u.id = ?
-	      ORDER BY wcf.timecreated DESC";
+          ORDER BY wcf.timecreated DESC";
 
         return $this->DB->get_records_sql($sql, array($idCommunity, $userid));
     }
 
     public function questionsByCommunity($idCommunity) {
         $sql = "SELECT pt.id, qt.name, qt.startdate, qt.enddate, qt.enabled, u.firstname, pt.time, u.id AS userid
-		  FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_QUESTION."} qt
-		  JOIN {".TableResouces::$TABLE_PAGE_COMMUNITY_POST."} pt ON qt.post = pt.id
-		  JOIN {user} u ON u.id = pt.userid
-		 WHERE pt.community = ?
-		 ORDER BY pt.time DESC";
+          FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_QUESTION . "} qt
+          JOIN {" . TableResouces::$TABLE_PAGE_COMMUNITY_POST . "} pt ON qt.post = pt.id
+          JOIN {user} u ON u.id = pt.userid
+         WHERE pt.community = ?
+         ORDER BY pt.time DESC";
 
         return $this->DB->get_records_sql($sql, array($idCommunity));
     }
 
     public function myQuestionsByCommunity($idCommunity, $userid) {
         $sql = "SELECT pt.id, qt.name, u.firstname, pt.time, u.id AS userid
-		  FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_QUESTION."} qt
-		  JOIN {".TableResouces::$TABLE_PAGE_COMMUNITY_POST ."} pt ON qt.post = pt.id
-		  JOIN {user} u ON u.id = pt.userid
-		 WHERE pt.community = ?  
+          FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_QUESTION . "} qt
+          JOIN {" . TableResouces::$TABLE_PAGE_COMMUNITY_POST . "} pt ON qt.post = pt.id
+          JOIN {user} u ON u.id = pt.userid
+         WHERE pt.community = ?  
                        AND u.id = ?
-	      ORDER BY pt.time DESC";
+          ORDER BY pt.time DESC";
 
         return $this->DB->get_records_sql($sql, array($idCommunity, $userid));
     }
 
     public function mentalMapsByCommunity($idCommunity) {
         $sql = " SELECT wcq.id, wcq.name AS name, wcq.time, u.firstname, wcq.userid, wcq.url
-		   FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_MENTAL_MAP."}  wcq
-		   JOIN {user} u ON wcq.userid = u.id
-		  WHERE wcq.community = ?
-	       ORDER BY wcq.time DESC";
+           FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_MENTAL_MAP . "}  wcq
+           JOIN {user} u ON wcq.userid = u.id
+          WHERE wcq.community = ?
+           ORDER BY wcq.time DESC";
         return $this->DB->get_records_sql($sql, array($idCommunity));
     }
 
@@ -111,25 +111,25 @@ class WebgdCommunityDao {
 
     public function allLinksByCommunity($idCommunity, $type) {
         $sql = "SELECT pt.id, lk.name, lk.url, pt.time, u.firstname, u.id AS userid
-		  FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_LINKS."} lk
-		  JOIN {".TableResouces::$TABLE_PAGE_COMMUNITY_POST."} pt ON lk.post = pt.id
-		  JOIN {user} u ON u.id = pt.userid
-		 WHERE pt.community = ? 
+          FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_LINKS . "} lk
+          JOIN {" . TableResouces::$TABLE_PAGE_COMMUNITY_POST . "} pt ON lk.post = pt.id
+          JOIN {user} u ON u.id = pt.userid
+         WHERE pt.community = ? 
                        AND pt.type = ?
-	      ORDER BY pt.time DESC";
+          ORDER BY pt.time DESC";
 
         return $this->DB->get_records_sql($sql, array($idCommunity, $type));
     }
 
     public function linksByCommunity($idCommunity, $userid, $type) {
         $sql = "SELECT pt.id, lk.name, u.firstname, pt.time, u.id AS userid
-		  FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_LINKS."} lk
-		  JOIN {".TableResouces::$TABLE_PAGE_COMMUNITY_POST."} pt ON lk.post = pt.id
-		  JOIN {user} u ON u.id = pt.userid
-		 WHERE pt.community = ?  
+          FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_LINKS . "} lk
+          JOIN {" . TableResouces::$TABLE_PAGE_COMMUNITY_POST . "} pt ON lk.post = pt.id
+          JOIN {user} u ON u.id = pt.userid
+         WHERE pt.community = ?  
                        AND u.id = ? 
                        AND pt.type = ?
-	      ORDER BY pt.time DESC";
+          ORDER BY pt.time DESC";
 
         return $this->DB->get_records_sql($sql, array($idCommunity, $userid, $type));
     }
@@ -142,8 +142,8 @@ class WebgdCommunityDao {
     public function glossarysByCommunityAndLike($idCommunity, $like, $case) {
         $sql = " SELECT gls.id, gls.termo, gls.conceito, gls.userid, u.firstname, 
                         gls.time, gls.community, gls.total_votos, gls.votos
-		   FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_GLOSSARY."} gls
-		   JOIN {user} u ON gls.userid = u.id";
+           FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_GLOSSARY . "} gls
+           JOIN {user} u ON gls.userid = u.id";
         if ($case == 0) {
             $sql .= " WHERE gls.termo COLLATE UTF8_GENERAL_CI LIKE '$like%' AND gls.community = $idCommunity ";
         } else {
@@ -158,12 +158,12 @@ class WebgdCommunityDao {
 
     public function myMentalMapsByCommunity($idCommunity, $userid) {
         $sql = " SELECT wcq.id, wcq.name AS name, wcq.time,
-			u.firstname, wcq.userid, wcq.url
-		   FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_MENTAL_MAP."}  wcq
-		   JOIN {user} u ON wcq.userid = u.id
-		  WHERE wcq.community = ? 
+            u.firstname, wcq.userid, wcq.url
+           FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_MENTAL_MAP . "}  wcq
+           JOIN {user} u ON wcq.userid = u.id
+          WHERE wcq.community = ? 
                         AND wcq.userid = ?
-	       ORDER BY wcq.time DESC";
+           ORDER BY wcq.time DESC";
 
         return $this->DB->get_records_sql($sql, array($idCommunity, $userid));
     }
@@ -210,9 +210,9 @@ class WebgdCommunityDao {
 
     public function deleteAskedQuestionByUserById($idQuestion, $userid) {
         $sql = " DELETE aqu
-		   FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION_USER."} aqu
-		   JOIN {".TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION."} aq ON aqu.answer_question = aq.id
-		  WHERE aq.question = ? 
+           FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION_USER . "} aqu
+           JOIN {" . TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION . "} aq ON aqu.answer_question = aq.id
+          WHERE aq.question = ? 
                         AND aqu.userid = ?";
 
         return $this->DB->execute($sql, array($idQuestion, $userid));
@@ -220,17 +220,17 @@ class WebgdCommunityDao {
 
     public function getTotalRespondidasEnquete($idQuestion) {
         $sql = " SELECT aqu.id
-		   FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION_USER."} aqu
-		   JOIN {".TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION."} aq ON aqu.answer_question = aq.id
-		  WHERE aq.question = ?";
+           FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION_USER . "} aqu
+           JOIN {" . TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION . "} aq ON aqu.answer_question = aq.id
+          WHERE aq.question = ?";
 
         return sizeof($this->DB->get_records_sql($sql, array($idQuestion)));
     }
 
     public function getTotalRespondidasEnqueteByPergunta($idPergunta) {
         $sql = " SELECT aqu.id
-		   FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION_USER."} aqu
-		  WHERE aqu.answer_question = ?";
+           FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION_USER . "} aqu
+          WHERE aqu.answer_question = ?";
 
         return sizeof($this->DB->get_records_sql($sql, array($idPergunta)));
     }
@@ -292,7 +292,7 @@ class WebgdCommunityDao {
     }
 
     public function getListNameUser($notUser) {
-        return $this->DB->get_records_sql("SELECT id,firstname FROM {user} WHERE id != ?",array($notUser));
+        return $this->DB->get_records_sql("SELECT id,firstname FROM {user} WHERE id != ?", array($notUser));
     }
 
     public function searchMentalMapByCommunityById($idMap) {
@@ -361,18 +361,18 @@ class WebgdCommunityDao {
 
     public function getRecordsTableCommunityPost($idCommunity) {
         $sql = "SELECT bw.message,bw.time, u.id AS userid, u.firstname AS username
-		  FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_POST."} bw
-		  JOIN {user} u ON bw.userid = u.id
-   		 WHERE bw.community = ?
-   	      ORDER BY bw.time DESC ";
+          FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_POST . "} bw
+          JOIN {user} u ON bw.userid = u.id
+            WHERE bw.community = ?
+             ORDER BY bw.time DESC ";
         return $this->DB->get_records_sql($sql, array($idCommunity));
     }
 
     public function getRecordsTableFilesCommunity($idCommunity) {
         $sql = "SELECT bwc.*, u.id AS userid, u.firstname AS username
-		  FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_FILE."} bwc
-		  JOIN {user} u ON bwc.userid = u.id
-   	      ORDER BY bwc.timecreated DESC ";
+          FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_FILE . "} bwc
+          JOIN {user} u ON bwc.userid = u.id
+             ORDER BY bwc.timecreated DESC ";
         return $this->DB->get_records_sql($sql);
     }
 
@@ -382,28 +382,28 @@ class WebgdCommunityDao {
 
     public function findChildrenByHabilityAndVisible($idParent, $visivel = 1, $habilitado = 1) {
         $sql = "SELECT p.id, p.nome, po.parent
-		  FROM {".TableResouces::$TABLE_PAGINA."} p
-	     LEFT JOIN {".TableResouces::$TABLE_PAGINA_order."} po ON p.id = po.page
-		 WHERE po.parent = ? 
+          FROM {" . TableResouces::$TABLE_PAGINA . "} p
+         LEFT JOIN {" . TableResouces::$TABLE_PAGINA_order . "} po ON p.id = po.page
+         WHERE po.parent = ? 
                        AND p.habilitado = ? 
                        AND p.visivel = ?
-	      ORDER BY po.id, po.parent";
+          ORDER BY po.id, po.parent";
         return $this->DB->get_records_sql($sql, array($idParent, $habilitado, $visivel));
     }
 
     public function findChildren($idParent) {
         $sql = "SELECT p.id, p.nome, po.parent
-		  FROM {$this->CFG->prefix}{".TableResouces::$TABLE_PAGINA."} p
-	     LEFT JOIN {$this->CFG->prefix}{".TableResouces::$TABLE_PAGINA_order."} po ON p.id = po.page
-		 WHERE po.parent = ?
-	      ORDER BY po.parent";
+          FROM {$this->CFG->prefix}{" . TableResouces::$TABLE_PAGINA . "} p
+         LEFT JOIN {$this->CFG->prefix}{" . TableResouces::$TABLE_PAGINA_order . "} po ON p.id = po.page
+         WHERE po.parent = ?
+          ORDER BY po.parent";
         return $this->DB->get_records_sql($sql, array($idParent));
     }
 
     public function getListFatherByHabilityAndVisible($visivel = 1, $habilitado = 1) {
         $sql = "SELECT p.id, p.nome, po.parent
-		  FROM {".TableResouces::$TABLE_PAGINA."} p
-	     LEFT JOIN {".TableResouces::$TABLE_PAGINA_order."} po ON p.id = po.page
+          FROM {" . TableResouces::$TABLE_PAGINA . "} p
+         LEFT JOIN {" . TableResouces::$TABLE_PAGINA_order . "} po ON p.id = po.page
                  WHERE (po.parent = 0 OR po.parent IS NULL) 
                        AND p.habilitado = ? 
                        AND p.visivel = ?
@@ -413,9 +413,9 @@ class WebgdCommunityDao {
 
     public function getListFather() {
         $sql = "SELECT p.id, p.nome, po.parent
-		  FROM {$this->CFG->prefix}{".TableResouces::$TABLE_PAGINA."} p
-	     LEFT JOIN {$this->CFG->prefix}{".TableResouces::$TABLE_PAGINA_order."} po ON p.id = po.page
-		 WHERE po.parent = 0 
+          FROM {$this->CFG->prefix}{" . TableResouces::$TABLE_PAGINA . "} p
+         LEFT JOIN {$this->CFG->prefix}{" . TableResouces::$TABLE_PAGINA_order . "} po ON p.id = po.page
+         WHERE po.parent = 0 
                        OR po.parent IS NULL
               ORDER BY po.id, po.parent";
         return $this->DB->get_records_sql($sql);
@@ -423,23 +423,23 @@ class WebgdCommunityDao {
 
     public function getListCommunity() {
         $sql = "SELECT wc.id,wc.name AS name, u.firstname AS user, u.id AS user_id
-		  FROM {".TableResouces::$TABLE_PAGE_COMMUNITY."} wc
-		  JOIN {user} u ON wc.userid = u.id";
+          FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY . "} wc
+          JOIN {user} u ON wc.userid = u.id";
         return $this->DB->get_records_sql($sql);
     }
 
     public function getListMyCommunityByUser($idUser) {
         $sql = "SELECT wc.id,wc.name AS name, u.firstname AS user, u.id AS user_id
-		  FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_USER."} wcu
-		  JOIN {user} u ON wcu.userid = u.id
-		  JOIN {".TableResouces::$TABLE_PAGE_COMMUNITY."} wc ON wcu.community = wc.id
-		 WHERE wcu.userid = ?";
+          FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_USER . "} wcu
+          JOIN {user} u ON wcu.userid = u.id
+          JOIN {" . TableResouces::$TABLE_PAGE_COMMUNITY . "} wc ON wcu.community = wc.id
+         WHERE wcu.userid = ?";
         return $this->DB->get_records_sql($sql, array($idUser));
     }
 
     public function findCommunityEmailById($id) {
         $sql = "SELECT u.email AS email
-                  FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_USER."} cm
+                  FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_USER . "} cm
                   JOIN {user} u ON cm.userid = u.id
                  WHERE cm.community = ?
               ORDER BY cm.id ASC ";
@@ -448,7 +448,7 @@ class WebgdCommunityDao {
 
     public function findCommunityParticipantsById($id) {
         $sql = "SELECT cm.id, u.id AS userid, u.firstname AS username
-                  FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_USER."} cm
+                  FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_USER . "} cm
                   JOIN {user} u ON cm.userid = u.id
                  WHERE cm.community = ?
               ORDER BY cm.id ASC ";
@@ -457,7 +457,7 @@ class WebgdCommunityDao {
 
     public function participanteInCommunity($idParticipante, $idCommunity) {
         $sql = "SELECT cm.id, u.id AS userid, u.firstname AS username
-                  FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_USER."} cm
+                  FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_USER . "} cm
                   JOIN {user} u ON cm.userid = u.id
                  WHERE cm.community = ? 
                        AND cm.userid = ?
@@ -475,20 +475,20 @@ class WebgdCommunityDao {
 
     public function getAllCommunityPost($idCommunity) {
         $sql = "SELECT pt.id, pt.time, pt.type, u.id AS userid, u.firstname AS username
-		  FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_POST."} pt
-		  JOIN {user} u ON pt.userid = u.id
-		 WHERE pt.community = ?
-	      ORDER BY pt.time DESC ";
+          FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_POST . "} pt
+          JOIN {user} u ON pt.userid = u.id
+         WHERE pt.community = ?
+          ORDER BY pt.time DESC ";
         return $this->DB->get_records_sql($sql, array($idCommunity));
     }
 
     public function getAllCommunityPostSince($idCommunity, $ultimo_post) {
         $sql = "SELECT pt.id, pt.time, pt.type, u.id AS userid, u.firstname AS username
-		  FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_POST."} pt
-		  JOIN {user} u ON pt.userid = u.id
-	         WHERE pt.community = ? 
+          FROM {" . TableResouces::$TABLE_PAGE_COMMUNITY_POST . "} pt
+          JOIN {user} u ON pt.userid = u.id
+             WHERE pt.community = ? 
                        AND pt.id > ?
-	      ORDER BY pt.time DESC ";
+          ORDER BY pt.time DESC ";
         return $this->DB->get_records_sql($sql, array($idCommunity, $ultimo_post));
     }
 

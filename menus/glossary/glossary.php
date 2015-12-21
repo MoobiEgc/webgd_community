@@ -1,4 +1,5 @@
 <?php
+
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -22,11 +23,11 @@
  */
 require_once(dirname(__FILE__) . '/../../../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/form/GlossaryForm.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/commons/TableResouces.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/JsResources.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/CssResources.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/form/GlossaryForm.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/commons/TableResouces.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/JsResources.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/CssResources.php');
 require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/CssResources.php');
 
 require_login(1);
@@ -49,111 +50,111 @@ $url = $CFG->wwwroot . '/blocks/webgd_community/view.php?community=' . $idCommun
 
 echo $OUTPUT->header('themeselector');
 
-if($idGlossario){
-	$webgdCommunityDao = new WebgdCommunityDao();
-	if(!$webgdCommunityDao->searchGlossaryByCommunityById($idCommunity, $idGlossario, $USER->id)){
-		redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity&option=8", 'Glossario não encontrado', 10);
-		echo $OUTPUT->footer();
-		die;
-	}else{
-		echo $OUTPUT->heading('<span class="titulo_list">' .
-						'<a href="' . $url . '" >' .
-		     $OUTPUT->heading($community->name, 2, 'titulo_comunidade') .
-					  '</a></span><br/>');
-		echo "<div class='subTitle'>Editar Termo</div><br/>";
-	}
-}else{
-	  echo $OUTPUT->heading('<span class="titulo_list">' .
-					'<a href="' . $url . '" >' .
-	       $OUTPUT->heading($community->name , 2, 'titulo_comunidade') .
-				  '</a></span><br/>');
-		echo "<div class='subTitle'>Cadastrar Termo</div><br/>";
+if ($idGlossario) {
+    $webgdCommunityDao = new WebgdCommunityDao();
+    if (!$webgdCommunityDao->searchGlossaryByCommunityById($idCommunity, $idGlossario, $USER->id)) {
+        redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity&option=8", 'Glossario não encontrado', 10);
+        echo $OUTPUT->footer();
+        die;
+    } else {
+        echo $OUTPUT->heading('<span class="titulo_list">' .
+                '<a href="' . $url . '" >' .
+                $OUTPUT->heading($community->name, 2, 'titulo_comunidade') .
+                '</a></span><br/>');
+        echo "<div class='subTitle'>Editar Termo</div><br/>";
+    }
+} else {
+    echo $OUTPUT->heading('<span class="titulo_list">' .
+            '<a href="' . $url . '" >' .
+            $OUTPUT->heading($community->name, 2, 'titulo_comunidade') .
+            '</a></span><br/>');
+    echo "<div class='subTitle'>Cadastrar Termo</div><br/>";
 }
 
 $mform = new GlossaryForm(null, array('community' => $idCommunity, 'glossario' => $idGlossario));
 
 if ($data = $mform->get_data()) {
-	$msg = "";
+    $msg = "";
 
-	if($idGlossario){
-		$glossary = $webgdCommunityDao->searchGlossaryByCommunityById($idCommunity, $idGlossario);
-		$glossary->termo = $data->termo;
-		$glossary->conceito = $data->conceito;
-		$glossary->exemplo = $data->exemplo;
-                
-		$msg = "Ocorreu um erro ao editar o glossario";
+    if ($idGlossario) {
+        $glossary = $webgdCommunityDao->searchGlossaryByCommunityById($idCommunity, $idGlossario);
+        $glossary->termo = $data->termo;
+        $glossary->conceito = $data->conceito;
+        $glossary->exemplo = $data->exemplo;
 
-		if($DB->update_record(TableResouces::$TABLE_PAGE_COMMUNITY_GLOSSARY, $glossary)){
-			$msg = "Termo editado com sucesso";
-		}
-	}else{
+        $msg = "Ocorreu um erro ao editar o glossario";
 
-		//TERMO
-		$name = $mform->get_new_filename('attachmentTermo');
-		$random = rand();
-		$name = $random . '_termo_' . $name;
-		$pathTermo = "{$CFG->dataroot}/webgd_community/$name";
-		if(!($mform->save_file('attachmentTermo', $pathTermo, true))){
-			$pathTermo = "";
-			$msg = "Ocorreu um erro ao salvar o video";
-		}
+        if ($DB->update_record(TableResouces::$TABLE_PAGE_COMMUNITY_GLOSSARY, $glossary)) {
+            $msg = "Termo editado com sucesso";
+        }
+    } else {
 
-		//Conceito
-		$name = $mform->get_new_filename('attachmentConceito');
-		$random = rand();
-		$name = $random . '_conceito_' . $name;
-		$pathConceito = "{$CFG->dataroot}/webgd_community/$name";
-		if(!($mform->save_file('attachmentConceito', $pathConceito, true))){
-			$pathConceito = "";
-			$msg = "Ocorreu um erro ao salvar o video";
-		}
+        //TERMO
+        $name = $mform->get_new_filename('attachmentTermo');
+        $random = rand();
+        $name = $random . '_termo_' . $name;
+        $pathTermo = "{$CFG->dataroot}/webgd_community/$name";
+        if (!($mform->save_file('attachmentTermo', $pathTermo, true))) {
+            $pathTermo = "";
+            $msg = "Ocorreu um erro ao salvar o video";
+        }
 
-		//exemplo
-		$name = $mform->get_new_filename('attachmentExemplo');
-		$random = rand();
-		$name = $random . '_exemplo_' . $name;
-		$pathExemplo = "{$CFG->dataroot}/webgd_community/$name";
-		if(!($mform->save_file('attachmentExemplo', $pathExemplo, true))){
-				$pathExemplo = "";
-				$msg = "Ocorreu um erro ao salvar o video";
-		}
+        //Conceito
+        $name = $mform->get_new_filename('attachmentConceito');
+        $random = rand();
+        $name = $random . '_conceito_' . $name;
+        $pathConceito = "{$CFG->dataroot}/webgd_community/$name";
+        if (!($mform->save_file('attachmentConceito', $pathConceito, true))) {
+            $pathConceito = "";
+            $msg = "Ocorreu um erro ao salvar o video";
+        }
 
-                //imagem
-		$name = $mform->get_new_filename('attachmentImage');
-		$random = rand();
-		$name = $random . '_image_' . $name;
-		$pathImage = "{$CFG->dataroot}/webgd_community/$name";
-		if(!($mform->save_file('attachmentImage', $pathImage, true))){
-				$pathImage = "";
-				$msg = "Ocorreu um erro ao salvar a imagem";
-		}
+        //exemplo
+        $name = $mform->get_new_filename('attachmentExemplo');
+        $random = rand();
+        $name = $random . '_exemplo_' . $name;
+        $pathExemplo = "{$CFG->dataroot}/webgd_community/$name";
+        if (!($mform->save_file('attachmentExemplo', $pathExemplo, true))) {
+            $pathExemplo = "";
+            $msg = "Ocorreu um erro ao salvar o video";
+        }
 
-		$msg = get_string('msgErro', 'block_webgd_community');
+        //imagem
+        $name = $mform->get_new_filename('attachmentImage');
+        $random = rand();
+        $name = $random . '_image_' . $name;
+        $pathImage = "{$CFG->dataroot}/webgd_community/$name";
+        if (!($mform->save_file('attachmentImage', $pathImage, true))) {
+            $pathImage = "";
+            $msg = "Ocorreu um erro ao salvar a imagem";
+        }
 
-		$glossary = new stdClass();
-		$glossary->termo = $data->termo;
-		$glossary->conceito = $data->conceito;
-		$glossary->community = $data->community;
-		$glossary->exemplo = $data->exemplo;
-		$glossary->videoTermo = $pathTermo;
-		$glossary->videoConceito = $pathConceito;
-		$glossary->videoExemplo = $pathExemplo;
-                $glossary->image = $pathImage;
-		$glossary->time =  time();
-		$glossary->userid = $USER->id;
+        $msg = get_string('msgErro', 'block_webgd_community');
 
-		try{
-			$transaction = $DB->start_delegated_transaction();
-			$DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_GLOSSARY, $glossary);
-			$transaction->allow_commit();
-			$msg = "Termo registrado com sucesso";
-		} catch(Exception $e) {
-			$transaction->rollback($e);
-			$msg = "Ocorreu um erro ao salvar o Termo";
-		}
-	}
-	redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity", $msg, 10);
+        $glossary = new stdClass();
+        $glossary->termo = $data->termo;
+        $glossary->conceito = $data->conceito;
+        $glossary->community = $data->community;
+        $glossary->exemplo = $data->exemplo;
+        $glossary->videoTermo = $pathTermo;
+        $glossary->videoConceito = $pathConceito;
+        $glossary->videoExemplo = $pathExemplo;
+        $glossary->image = $pathImage;
+        $glossary->time = time();
+        $glossary->userid = $USER->id;
+
+        try {
+            $transaction = $DB->start_delegated_transaction();
+            $DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_GLOSSARY, $glossary);
+            $transaction->allow_commit();
+            $msg = "Termo registrado com sucesso";
+        } catch (Exception $e) {
+            $transaction->rollback($e);
+            $msg = "Ocorreu um erro ao salvar o Termo";
+        }
+    }
+    redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity", $msg, 10);
 } else {
-	$mform->display();
+    $mform->display();
 }
 echo $OUTPUT->footer();

@@ -1,6 +1,6 @@
 <?php
 
-require_once($CFG->libdir.'/formslib.php');
+require_once($CFG->libdir . '/formslib.php');
 require_once($CFG->libdir . '/adminlib.php');
 require_once($CFG->libdir . '/completionlib.php');
 require_once($CFG->libdir . '/coursecatlib.php');
@@ -11,7 +11,7 @@ class CadastrarArquivoForm extends moodleform {
     //Add elements to form
     public function definition() {
         global $CFG;
-        
+
         $mform = $this->_form; // Don't forget the underscore! 
 
         $mform->addElement('hidden', 'community', $this->_customdata['community']);

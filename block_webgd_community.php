@@ -41,7 +41,7 @@ class block_webgd_community extends block_list {
             .block_webgd_community li{
                 border-bottom: 2px solid #CCCBCB !important;
             }
-            
+
             .column.c1{
                 padding-left: 0px;
                 width: 100%;
@@ -63,51 +63,51 @@ class block_webgd_community extends block_list {
 
 
         $this->content->footer = '<!--VIDEO-->
-		<div id="videodiv" class="dissmissable mobile">
+        <div id="videodiv" class="dissmissable mobile">
 
-				<video id="videotag" style="display:none" autoplay>
-						<source src="./blocks/webgd/videos/equipe.mp4" type=\'video/mp4; codecs="avc1.42E01E"\' />
-				</video>
-				<canvas width="512" height="576" id="buffer"></canvas>
-				<canvas width="512" height="288" id="output" class="move"></canvas>
-
-
-				<div class="controls">
-						<div class="myRow">
-								<div class="col-xs-12">
-										<input id="playBackSlider" min="0.25" max="1.75" value="1" step="0.25" type="range">
-								</div>
-						</div>
-						<div class="playBar">
-
-												<div class="controlBtn link" id="replay">
-														<span class="fa fa-fast-backward"></span>
-												</div>
-
-												<div class="controlBtn link" id="playPause">
-														<span class="fa fa-pause"></span>
-												</div>
-
-												<div class="controlBtn link" id="faster">
-														<span class="fa fa-forward"></span>
-												</div>
+                <video id="videotag" style="display:none" autoplay>
+                        <source src="./blocks/webgd/videos/equipe.mp4" type=\'video/mp4; codecs="avc1.42E01E"\' />
+                </video>
+                <canvas width="512" height="576" id="buffer"></canvas>
+                <canvas width="512" height="288" id="output" class="move"></canvas>
 
 
-						</div>
+                <div class="controls">
+                        <div class="myRow">
+                                <div class="col-xs-12">
+                                        <input id="playBackSlider" min="0.25" max="1.75" value="1" step="0.25" type="range">
+                                </div>
+                        </div>
+                        <div class="playBar">
 
-						<div class="link dismiss">&times;</div>
-				</div>
+                                                <div class="controlBtn link" id="replay">
+                                                        <span class="fa fa-fast-backward"></span>
+                                                </div>
 
-		</div>
-		<div id="imagediv" class="mobile dissmissable">
-				<div class="move">
-					<img src="#" />
-					<div class="link dismiss">&times;</div>
-				</div>
-		</div>
+                                                <div class="controlBtn link" id="playPause">
+                                                        <span class="fa fa-pause"></span>
+                                                </div>
 
-		<script type="text/javascript" src="' . $CFG->wwwroot . '/blocks/webgd/js/videolibras.js"></script>
-		<!--FIM DO VIDEO e imagem LIBRAS-->';
+                                                <div class="controlBtn link" id="faster">
+                                                        <span class="fa fa-forward"></span>
+                                                </div>
+
+
+                        </div>
+
+                        <div class="link dismiss">&times;</div>
+                </div>
+
+        </div>
+        <div id="imagediv" class="mobile dissmissable">
+                <div class="move">
+                    <img src="#" />
+                    <div class="link dismiss">&times;</div>
+                </div>
+        </div>
+
+        <script type="text/javascript" src="' . $CFG->wwwroot . '/blocks/webgd/js/videolibras.js"></script>
+        <!--FIM DO VIDEO e imagem LIBRAS-->';
 
         return $this->content;
     }
@@ -147,24 +147,24 @@ class block_webgd_community extends block_list {
 
         return "<div class='linha_webgd'>
 
-					<div style='float:left; position:relative;'>
-						<img style='width:auto;height:auto;vertical-align: middle;' src='" . $image . "'>
-						<span class='titulo_menu_webgd'>
-					 		<a title='" . $nome . "' href='" . $CFG->wwwroot . $url . "'>$nome</a>
-						</span>
-					</div>
+                    <div style='float:left; position:relative;'>
+                        <img style='width:auto;height:auto;vertical-align: middle;' src='" . $image . "'>
+                        <span class='titulo_menu_webgd'>
+                             <a title='" . $nome . "' href='" . $CFG->wwwroot . $url . "'>$nome</a>
+                        </span>
+                    </div>
 
-					<div class='row' style='float:right; position: relative; margin-left:0;'>
-							<div class='col-lg-12'>
-									<a class='hand' href='" . $videoLibras . "'><img src='" . $imgLibras . "'></img></a>
-							</div>
+                    <div class='row' style='float:right; position: relative; margin-left:0;'>
+                            <div class='col-lg-12'>
+                                    <a class='hand' href='" . $videoLibras . "'><img src='" . $imgLibras . "'></img></a>
+                            </div>
 
-							<div class='col-lg-12'>
-									<a href='#' class='tooltip_redhand' rel='" . $redhand . "'><img src='" . $imgSignwrigth . "'></img></a>
-							</div>
-					</div>
+                            <div class='col-lg-12'>
+                                    <a href='#' class='tooltip_redhand' rel='" . $redhand . "'><img src='" . $imgSignwrigth . "'></img></a>
+                            </div>
+                    </div>
 
-				</div>";
+                </div>";
     }
 
 }

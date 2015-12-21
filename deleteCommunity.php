@@ -1,7 +1,8 @@
 <?php
+
 require_once(dirname(__FILE__) . '/../../config.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/commons/TableResouces.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/commons/TableResouces.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
 
 global $USER;
 
@@ -23,8 +24,8 @@ $webgdCommunityDao = new WebgdCommunityDao();
 
 $msg = 'Erro ao excluir Comunidade';
 
-if($webgdCommunityDao->deleteCommunityById($idCommunity)){
-	$msg = 'Comunidade deletada com sucesso';
+if ($webgdCommunityDao->deleteCommunityById($idCommunity)) {
+    $msg = 'Comunidade deletada com sucesso';
 }
 
 redirect("{$CFG->wwwroot}/blocks/webgd_community/index.php", $msg, 10);

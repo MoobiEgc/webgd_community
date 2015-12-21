@@ -1,294 +1,294 @@
 <XMLDB PATH="blocks/chatwebgd" VERSION="20151127" COMMENT="XMLDB file for Moodle blocks/chatwebgd"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="../../../../lib/xmldb/xmldb.xsd">
-	<TABLES>
-		<TABLE NAME="block_webgd_cp" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="name" TYPE="text" LENGTH="60" NOTNULL="true" SEQUENCE="false" />
-				<FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" />
-				<FIELD NAME="timecreated" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" />
-				<FIELD NAME="description" TYPE="text" LENGTH="300" NOTNULL="false" SEQUENCE="false"/>
-				<FIELD NAME="close_community" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>
-				<FIELD NAME="video" TYPE="text" LENGTH="300" NOTNULL="false" SEQUENCE="false"/>
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id" />
-			</KEYS>
-		</TABLE>
-			
-		<TABLE NAME="block_webgd_cp_answer_q" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="name_question" TYPE="text" LENGTH="60" NOTNULL="true" SEQUENCE="false" />
-				<FIELD NAME="question" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" />			
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id" />
-				<KEY NAME="fk_question" TYPE="foreign" FIELDS="question" REFTABLE="block_webgd_cp_question" REFFIELDS="id"/> 
-			</KEYS>
-		</TABLE>
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="../../../../lib/xmldb/xmldb.xsd">
+    <TABLES>
+        <TABLE NAME="block_webgd_cp" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="name" TYPE="text" LENGTH="60" NOTNULL="true" SEQUENCE="false" />
+                <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" />
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" />
+                <FIELD NAME="description" TYPE="text" LENGTH="300" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="close_community" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="video" TYPE="text" LENGTH="300" NOTNULL="false" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+            </KEYS>
+        </TABLE>
+            
+        <TABLE NAME="block_webgd_cp_answer_q" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="name_question" TYPE="text" LENGTH="60" NOTNULL="true" SEQUENCE="false" />
+                <FIELD NAME="question" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" />            
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+                <KEY NAME="fk_question" TYPE="foreign" FIELDS="question" REFTABLE="block_webgd_cp_question" REFFIELDS="id"/> 
+            </KEYS>
+        </TABLE>
 
-		<TABLE NAME="block_webgd_cp_answer_q_user" COMMENT=""> 
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0" />
-				<FIELD NAME="answer_question" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-				<FIELD NAME="time" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>			
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id" />
-				<KEY NAME="FK__block_webgd_cp_answer_q" TYPE="foreign" FIELDS="answer_question" REFTABLE="block_webgd_cp_answer_q" REFFIELDS="id" /> 
-			</KEYS>
-		</TABLE>
+        <TABLE NAME="block_webgd_cp_answer_q_user" COMMENT=""> 
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0" />
+                <FIELD NAME="answer_question" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="time" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>            
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+                <KEY NAME="FK__block_webgd_cp_answer_q" TYPE="foreign" FIELDS="answer_question" REFTABLE="block_webgd_cp_answer_q" REFFIELDS="id" /> 
+            </KEYS>
+        </TABLE>
 
-		<TABLE NAME="block_webgd_cp_file" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="name" TYPE="text" LENGTH="60" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="path" TYPE="text" LENGTH="300" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="timecreated" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>						
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-			</KEYS>
-		</TABLE>
+        <TABLE NAME="block_webgd_cp_file" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="name" TYPE="text" LENGTH="60" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="path" TYPE="text" LENGTH="300" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>                        
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
 
-		<TABLE NAME="block_webgd_cp_file_communit" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="file" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>							
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-				<KEY NAME="fk_file" TYPE="foreign" FIELDS="file" REFTABLE="block_webgd_cp_file" REFFIELDS="id" />
-				<KEY NAME="fk_community" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>
-			</KEYS>
-		</TABLE>
+        <TABLE NAME="block_webgd_cp_file_communit" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="file" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>                            
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="fk_file" TYPE="foreign" FIELDS="file" REFTABLE="block_webgd_cp_file" REFFIELDS="id" />
+                <KEY NAME="fk_community" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>
+            </KEYS>
+        </TABLE>
 
-		<TABLE NAME="block_webgd_cp_glossarry" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="termo" TYPE="text" LENGTH="200" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-				<FIELD NAME="conceito" TYPE="text" LENGTH="big" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="time" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>				
-				<FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>											
-				<FIELD NAME="video_termo" TYPE="text" LENGTH="300" NOTNULL="false" SEQUENCE="false"/>				
-				<FIELD NAME="video_conceito" TYPE="text" LENGTH="300" NOTNULL="false" SEQUENCE="false"/>				
-				<FIELD NAME="exemplo" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false"/>				
-				<FIELD NAME="video_exemplo" TYPE="text" LENGTH="300" NOTNULL="false" SEQUENCE="false"/>				
-				<FIELD NAME="total_votos" TYPE="int" LENGTH="11" NOTNULL="false" SEQUENCE="false"/>				
-				<FIELD NAME="votos" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false" DEFAULT="0"/>				
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-				<KEY NAME="FK_block_webgd_cp_glossary_block_" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>			
-			</KEYS>
-		</TABLE>
+        <TABLE NAME="block_webgd_cp_glossarry" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="termo" TYPE="text" LENGTH="200" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="conceito" TYPE="text" LENGTH="big" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="time" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>                
+                <FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>                                            
+                <FIELD NAME="video_termo" TYPE="text" LENGTH="300" NOTNULL="false" SEQUENCE="false"/>                
+                <FIELD NAME="video_conceito" TYPE="text" LENGTH="300" NOTNULL="false" SEQUENCE="false"/>                
+                <FIELD NAME="exemplo" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false"/>                
+                <FIELD NAME="video_exemplo" TYPE="text" LENGTH="300" NOTNULL="false" SEQUENCE="false"/>                
+                <FIELD NAME="total_votos" TYPE="int" LENGTH="11" NOTNULL="false" SEQUENCE="false"/>                
+                <FIELD NAME="votos" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false" DEFAULT="0"/>                
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="FK_block_webgd_cp_glossary_block_" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>            
+            </KEYS>
+        </TABLE>
 
-		<TABLE NAME="block_webgd_cp_icone" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-				<FIELD NAME="name" TYPE="text" LENGTH="50" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-				<FIELD NAME="url" TYPE="text" LENGTH="900" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>				
-				<FIELD NAME="time" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>											
-				<FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>											
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-				<KEY NAME="FK_block_webgd_cp_glossary_block_webgd_cp" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>			
-			</KEYS>
-		</TABLE>
+        <TABLE NAME="block_webgd_cp_icone" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="name" TYPE="text" LENGTH="50" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="url" TYPE="text" LENGTH="900" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                
+                <FIELD NAME="time" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                                            
+                <FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                                            
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="FK_block_webgd_cp_glossary_block_webgd_cp" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>            
+            </KEYS>
+        </TABLE>
 
-		<TABLE NAME="block_webgd_cp_invited" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true"/>
-				<FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="time" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>								
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-				<KEY NAME="FK_block_webgd_cp_invited_block_webgd_cp" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>			
-			</KEYS>
-		</TABLE>
+        <TABLE NAME="block_webgd_cp_invited" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="time" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>                                
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="FK_block_webgd_cp_invited_block_webgd_cp" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>            
+            </KEYS>
+        </TABLE>
 
-		<TABLE NAME="block_webgd_cp_mental_map" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-				<FIELD NAME="name" TYPE="text" LENGTH="50" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="url" TYPE="text" LENGTH="900" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>				
-				<FIELD NAME="time" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>											
-				<FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>											
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-				<KEY NAME="fk" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>			
-				<KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="block_webgd_cp" REFFIELDS="userid"/>			
-			</KEYS>
-		</TABLE>
+        <TABLE NAME="block_webgd_cp_mental_map" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="name" TYPE="text" LENGTH="50" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="url" TYPE="text" LENGTH="900" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                
+                <FIELD NAME="time" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                                            
+                <FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                                            
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="fk" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>            
+                <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="block_webgd_cp" REFFIELDS="userid"/>            
+            </KEYS>
+        </TABLE>
 
-		<TABLE NAME="block_webgd_cp_movie_cp" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-				<FIELD NAME="name" TYPE="text" LENGTH="60" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-				<FIELD NAME="path" TYPE="text" LENGTH="300" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>				
-				<FIELD NAME="timecreated" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>											
-				<FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>											
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-				<KEY NAME="webgd_community" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>							
-			</KEYS>
-		</TABLE>
+        <TABLE NAME="block_webgd_cp_movie_cp" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="name" TYPE="text" LENGTH="60" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="path" TYPE="text" LENGTH="300" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                                            
+                <FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                                            
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="webgd_community" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>                            
+            </KEYS>
+        </TABLE>
 
-		<TABLE NAME="block_webgd_cp_photo_cp" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-				<FIELD NAME="name" TYPE="text" LENGTH="60" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-				<FIELD NAME="path" TYPE="text" LENGTH="300" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>				
-				<FIELD NAME="timecreated" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>											
-				<FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>											
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-				<KEY NAME="FK__block_webgd_cp" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>							
-			</KEYS>
-		</TABLE>
+        <TABLE NAME="block_webgd_cp_photo_cp" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="name" TYPE="text" LENGTH="60" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="path" TYPE="text" LENGTH="300" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                                            
+                <FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                                            
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="FK__block_webgd_cp" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>                            
+            </KEYS>
+        </TABLE>
 
-		<TABLE NAME="block_webgd_cp_post" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-				<FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>			
-				<FIELD NAME="time" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>															
-				<FIELD NAME="type" TYPE="text" LENGTH="45" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-				<FIELD NAME="total_votos_sim" TYPE="int" LENGTH="11" NOTNULL="false" SEQUENCE="false" DEFAULT="0"/>		
-				<FIELD NAME="total_votos_nao" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" DEFAULT="0"/>		
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-				<KEY NAME="FK_block_webgd_cp_post_block_webgd_cp" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>							
-			</KEYS>
-		</TABLE>
+        <TABLE NAME="block_webgd_cp_post" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>            
+                <FIELD NAME="time" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                                                            
+                <FIELD NAME="type" TYPE="text" LENGTH="45" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="total_votos_sim" TYPE="int" LENGTH="11" NOTNULL="false" SEQUENCE="false" DEFAULT="0"/>        
+                <FIELD NAME="total_votos_nao" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" DEFAULT="0"/>        
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="FK_block_webgd_cp_post_block_webgd_cp" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>                            
+            </KEYS>
+        </TABLE>
 
-		<TABLE NAME="block_webgd_cp_question" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="name" TYPE="text" LENGTH="60" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-				<FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-				<FIELD NAME="timecreated" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-				<FIELD NAME="enabled" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-				<FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>				
-				<FIELD NAME="startdate" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>															
-				<FIELD NAME="enddate" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>															
-				<FIELD NAME="post" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>	
-				<FIELD NAME="attachment_question" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>	
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-				<KEY NAME="FK_block_webgd_cp_question_block_webgd_cp" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>						
-			</KEYS>
-		</TABLE>
+        <TABLE NAME="block_webgd_cp_question" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="name" TYPE="text" LENGTH="60" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="enabled" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                
+                <FIELD NAME="startdate" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>                                                            
+                <FIELD NAME="enddate" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>                                                            
+                <FIELD NAME="post" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>    
+                <FIELD NAME="attachment_question" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>    
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="FK_block_webgd_cp_question_block_webgd_cp" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>                        
+            </KEYS>
+        </TABLE>
 
-		<TABLE NAME="block_webgd_cp_user" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="admin" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>														
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-				<KEY NAME="FK_block_webgd_cp_user_block_webgd_cp" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>							
-			</KEYS>
-		</TABLE>	
+        <TABLE NAME="block_webgd_cp_user" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="admin" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                                                        
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="FK_block_webgd_cp_user_block_webgd_cp" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>                            
+            </KEYS>
+        </TABLE>    
 
-		<TABLE NAME="block_webgd_cp_usu_vot_glos" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="glossarryid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="voto" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>														
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>				
-			</KEYS>
-		</TABLE>	
+        <TABLE NAME="block_webgd_cp_usu_vot_glos" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="glossarryid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="voto" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>                                                        
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>                
+            </KEYS>
+        </TABLE>    
 
-		<TABLE NAME="block_webgd_cp_post_user_com" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="postid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="comentario" TYPE="text" LENGTH="500" NOTNULL="false" SEQUENCE="false"/>
-				<FIELD NAME="time" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>														
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>				
-			</KEYS>
-		</TABLE>
+        <TABLE NAME="block_webgd_cp_post_user_com" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="postid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="comentario" TYPE="text" LENGTH="500" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="time" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>                                                        
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>                
+            </KEYS>
+        </TABLE>
 
-		<TABLE NAME="block_webgd_cp_text" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="post" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="message" TYPE="text" LENGTH="big" NOTNULL="true" SEQUENCE="false"/>																
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>				
-				<KEY NAME="post_id_idx" TYPE="foreign" FIELDS="post" REFTABLE="block_webgd_cp_post" REFFIELDS="id"/>	
-			</KEYS>
-		</TABLE>	
+        <TABLE NAME="block_webgd_cp_text" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="post" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="message" TYPE="text" LENGTH="big" NOTNULL="true" SEQUENCE="false"/>                                                                
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>                
+                <KEY NAME="post_id_idx" TYPE="foreign" FIELDS="post" REFTABLE="block_webgd_cp_post" REFFIELDS="id"/>    
+            </KEYS>
+        </TABLE>    
 
-		<TABLE NAME="block_webgd_cp_media" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="post" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>
-				<FIELD NAME="question" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>																
-				<FIELD NAME="answer" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>
-				<FIELD NAME="path" TYPE="text" LENGTH="300" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="name" TYPE="text" LENGTH="60" NOTNULL="true" SEQUENCE="false"/>
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>				
-				<KEY NAME="post_fk_idx" TYPE="foreign" FIELDS="post" REFTABLE="block_webgd_cp_post" REFFIELDS="id"/>	
-				<KEY NAME="question_fk_idx" TYPE="foreign" FIELDS="question" REFTABLE="block_webgd_cp_question" REFFIELDS="id"/>	
-				<KEY NAME="answer_fk_idx" TYPE="foreign" FIELDS="answer" REFTABLE="block_webgd_cp_post" REFFIELDS="id"/>	
-			</KEYS>
-		</TABLE>
+        <TABLE NAME="block_webgd_cp_media" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="post" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="question" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>                                                                
+                <FIELD NAME="answer" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="path" TYPE="text" LENGTH="300" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="name" TYPE="text" LENGTH="60" NOTNULL="true" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>                
+                <KEY NAME="post_fk_idx" TYPE="foreign" FIELDS="post" REFTABLE="block_webgd_cp_post" REFFIELDS="id"/>    
+                <KEY NAME="question_fk_idx" TYPE="foreign" FIELDS="question" REFTABLE="block_webgd_cp_question" REFFIELDS="id"/>    
+                <KEY NAME="answer_fk_idx" TYPE="foreign" FIELDS="answer" REFTABLE="block_webgd_cp_post" REFFIELDS="id"/>    
+            </KEYS>
+        </TABLE>
 
-		<TABLE NAME="block_webgd_cp_links" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="post" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="name" TYPE="text" LENGTH="50" NOTNULL="true" SEQUENCE="false"/>																
-				<FIELD NAME="url" TYPE="text" LENGTH="900" NOTNULL="true" SEQUENCE="false"/>																
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>				
-				<KEY NAME="post_fk_idx" TYPE="foreign" FIELDS="post" REFTABLE="block_webgd_cp_post" REFFIELDS="id"/>	
-			</KEYS>
-		</TABLE>
+        <TABLE NAME="block_webgd_cp_links" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="post" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="name" TYPE="text" LENGTH="50" NOTNULL="true" SEQUENCE="false"/>                                                                
+                <FIELD NAME="url" TYPE="text" LENGTH="900" NOTNULL="true" SEQUENCE="false"/>                                                                
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>                
+                <KEY NAME="post_fk_idx" TYPE="foreign" FIELDS="post" REFTABLE="block_webgd_cp_post" REFFIELDS="id"/>    
+            </KEYS>
+        </TABLE>
 
-		<TABLE NAME="block_webgd_cp_post_user_lik" COMMENT="">
-			<FIELDS>
-				<FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-				<FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
-				<FIELD NAME="postid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>																
-				<FIELD NAME="voto" TYPE="int" LENGTH="11" NOTNULL="false" SEQUENCE="false" DEFAULT="0" />																
-			</FIELDS>
-			<KEYS>
-				<KEY NAME="primary" TYPE="primary" FIELDS="id"/>				
-			</KEYS>
-		</TABLE>
+        <TABLE NAME="block_webgd_cp_post_user_lik" COMMENT="">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="postid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>                                                                
+                <FIELD NAME="voto" TYPE="int" LENGTH="11" NOTNULL="false" SEQUENCE="false" DEFAULT="0" />                                                                
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>                
+            </KEYS>
+        </TABLE>
 
-	</TABLES>
+    </TABLES>
 </XMLDB>

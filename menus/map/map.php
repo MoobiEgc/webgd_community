@@ -1,4 +1,5 @@
 <?php
+
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -22,11 +23,11 @@
  */
 require_once(dirname(__FILE__) . '/../../../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/form/MapForm.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/commons/TableResouces.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/JsResources.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/CssResources.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/form/MapForm.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/commons/TableResouces.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/JsResources.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/CssResources.php');
 require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/CssResources.php');
 
 require_login(1);
@@ -49,74 +50,73 @@ $url = $CFG->wwwroot . '/blocks/webgd_community/view.php?community=' . $idCommun
 
 echo $OUTPUT->header('themeselector');
 
-if($idMap){
-	$webgdCommunityDao = new WebgdCommunityDao();
-	if(!$webgdCommunityDao->searchMentalMapByCommunityByIdByUser($idCommunity, $idMap, $USER->id)){
-		redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity&option=2&suboption=1", 'Mapa mental não encontrado', 10);
-		echo $OUTPUT->footer();
-		die;
-	}else{
-		echo $OUTPUT->heading('<span class="titulo_list">' .
-						'<a href="' . $url . '" >' .
-		     $OUTPUT->heading($community->name , 2, 'titulo_comunidade') .
-					  '</a></span><br/>');
-		echo "<div class='subTitle'>Editar Mapa mental</div><br/>";
-	}
-}else{
-	echo $OUTPUT->heading('<span class="titulo_list">' .
-					  '<a href="' . $url . '" >' .
-			 $OUTPUT->heading($community->name , 2, 'titulo_comunidade') .
-					  '</a></span><br/>');
-	echo "<div class='subTitle'>Cadastrar Atividade</div><br/>";
+if ($idMap) {
+    $webgdCommunityDao = new WebgdCommunityDao();
+    if (!$webgdCommunityDao->searchMentalMapByCommunityByIdByUser($idCommunity, $idMap, $USER->id)) {
+        redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity&option=2&suboption=1", 'Mapa mental não encontrado', 10);
+        echo $OUTPUT->footer();
+        die;
+    } else {
+        echo $OUTPUT->heading('<span class="titulo_list">' .
+                '<a href="' . $url . '" >' .
+                $OUTPUT->heading($community->name, 2, 'titulo_comunidade') .
+                '</a></span><br/>');
+        echo "<div class='subTitle'>Editar Mapa mental</div><br/>";
+    }
+} else {
+    echo $OUTPUT->heading('<span class="titulo_list">' .
+            '<a href="' . $url . '" >' .
+            $OUTPUT->heading($community->name, 2, 'titulo_comunidade') .
+            '</a></span><br/>');
+    echo "<div class='subTitle'>Cadastrar Atividade</div><br/>";
 }
 
 $mform = new MapForm(null, array('community' => $idCommunity, 'map' => $idMap));
 
 if ($data = $mform->get_data()) {
-	$msg = "";
+    $msg = "";
 
-	if($idMap){
-		$map = $webgdCommunityDao->searchMentalMapByCommunityById($idMap);
-		$map->name = $data->nome;
-		$map->url= $data->link;
+    if ($idMap) {
+        $map = $webgdCommunityDao->searchMentalMapByCommunityById($idMap);
+        $map->name = $data->nome;
+        $map->url = $data->link;
 
-		$msg = "Ocorreu um erro ao editar o link";
+        $msg = "Ocorreu um erro ao editar o link";
 
-		if($DB->update_record(TableResouces::$TABLE_PAGE_COMMUNITY_LINKS, $map)){
-			$msg = "Link editado com sucesso";
-		}
-	}else{
+        if ($DB->update_record(TableResouces::$TABLE_PAGE_COMMUNITY_LINKS, $map)) {
+            $msg = "Link editado com sucesso";
+        }
+    } else {
 
-		try{
+        try {
 
-			$transaction = $DB->start_delegated_transaction();
+            $transaction = $DB->start_delegated_transaction();
 
-			$post = new stdClass();
-			$post->community = $idCommunity;
-			$post->userid = $USER->id;
-			$post->time = time();
-			$post->type = 'map';
+            $post = new stdClass();
+            $post->community = $idCommunity;
+            $post->userid = $USER->id;
+            $post->time = time();
+            $post->type = 'map';
 
-			$idPost = $webgdDao->insertRecordInTableCommunityPost($post);
+            $idPost = $webgdDao->insertRecordInTableCommunityPost($post);
 
-			$map = new stdClass();
-			$map->post = $idPost;
-			$map->name = $data->nome;
-			$map->url= $data->link;
+            $map = new stdClass();
+            $map->post = $idPost;
+            $map->name = $data->nome;
+            $map->url = $data->link;
 
-			$DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_LINKS, $map);
+            $DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_LINKS, $map);
 
-			$transaction->allow_commit();
+            $transaction->allow_commit();
 
-			$msg = "Link registrado com sucesso";
-
-		}catch(Exception $e){
-			$transaction->rollback($e);
-			$msg = "Ocorreu um erro ao salvar o link";
-		}
-	}
-	redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity&suboption=1", $msg, 10);
+            $msg = "Link registrado com sucesso";
+        } catch (Exception $e) {
+            $transaction->rollback($e);
+            $msg = "Ocorreu um erro ao salvar o link";
+        }
+    }
+    redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity&suboption=1", $msg, 10);
 } else {
-	$mform->display();
+    $mform->display();
 }
 echo $OUTPUT->footer();

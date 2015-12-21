@@ -1,4 +1,5 @@
 <?php
+
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -20,14 +21,13 @@
  * @package core
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 require_once(dirname(__FILE__) . '/../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/commons/TableResouces.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/menus/Commons.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/ImageResources.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/CssResources.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/commons/TableResouces.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/menus/Commons.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/ImageResources.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/CssResources.php');
 require_login(1);
 global $USER, $DB, $CFG;
 
@@ -42,14 +42,14 @@ echo $OUTPUT->header('themeselector');
 
 $webgdCommunityDao = new WebgdCommunityDao();
 
-if($listCommunity = $webgdCommunityDao->getListMyCommunityByUser($USER->id)){
-	echo '<div class="lista_home">';
-		echo '<span class="titulo_list">'.$OUTPUT->heading('Minhas Comunidades').'</span>';
-		foreach ($listCommunity as $community){
-			Commons::printListMyCommunity($community);	
-		}
-	echo '<div>';
-}else{
-	echo get_string('nenhumaComunidadeRegistrada','block_webgd_community');
+if ($listCommunity = $webgdCommunityDao->getListMyCommunityByUser($USER->id)) {
+    echo '<div class="lista_home">';
+    echo '<span class="titulo_list">' . $OUTPUT->heading('Minhas Comunidades') . '</span>';
+    foreach ($listCommunity as $community) {
+        Commons::printListMyCommunity($community);
+    }
+    echo '<div>';
+} else {
+    echo get_string('nenhumaComunidadeRegistrada', 'block_webgd_community');
 }
 echo $OUTPUT->footer();

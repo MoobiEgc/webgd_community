@@ -1,7 +1,8 @@
 <?php
+
 require_once(dirname(__FILE__) . '/../../../../config.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/commons/TableResouces.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/commons/TableResouces.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
 
 global $USER;
 
@@ -25,16 +26,15 @@ $webgdCommunityDao = new WebgdCommunityDao();
 $msg = 'Foto não encontrada';
 
 
-if($webgdCommunityDao->searchPhotoCommunityById($idCommunity, $idFile)){
+if ($webgdCommunityDao->searchPhotoCommunityById($idCommunity, $idFile)) {
 
-	$file = $webgdCommunityDao->searchPhotoById($idFile);
+    $file = $webgdCommunityDao->searchPhotoById($idFile);
 
-	if($webgdCommunityDao->deletePhotoByCommunityByIdByuser($file->id, $USER->id, $file->post)){
-		$msg = 'Foto excluida com sucesso';
+    if ($webgdCommunityDao->deletePhotoByCommunityByIdByuser($file->id, $USER->id, $file->post)) {
+        $msg = 'Foto excluida com sucesso';
 
-		unlink($file->path);
-	}
-
+        unlink($file->path);
+    }
 }
 
 redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity", $msg, 10);

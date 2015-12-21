@@ -1,4 +1,5 @@
 <?php
+
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -23,6 +24,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class block_webgd_community_renderer extends plugin_renderer_base {
+
     /**
      * Returns the content of the navigation tree.
      *
@@ -33,12 +35,13 @@ class block_webgd_community_renderer extends plugin_renderer_base {
      */
     public function navigation_tree(global_navigation $navigation, $expansionlimit, array $options = array()) {
         $navigation->add_class('webgd_node');
-        $content = $this->navigation_node(array($navigation), array('class'=>'block_tree list'), $expansionlimit, $options);
+        $content = $this->navigation_node(array($navigation), array('class' => 'block_tree list'), $expansionlimit, $options);
         if (isset($navigation->id) && !is_numeric($navigation->id) && !empty($content)) {
             $content = $this->output->box($content, 'block_tree_box', $navigation->id);
         }
         return $content;
     }
+
     /**
      * Produces a navigation node for the navigation tree
      *
@@ -49,10 +52,10 @@ class block_webgd_community_renderer extends plugin_renderer_base {
      * @param int $depth
      * @return string
      */
-    protected function navigation_node($items, $attrs=array(), $expansionlimit=null, array $options = array(), $depth=1) {
+    protected function navigation_node($items, $attrs = array(), $expansionlimit = null, array $options = array(), $depth = 1) {
 
         // exit if empty, we don't want an empty ul element
-        if (count($items)==0) {
+        if (count($items) == 0) {
             return '';
         }
 
@@ -80,9 +83,9 @@ class block_webgd_community_renderer extends plugin_renderer_base {
             } else {
                 $icon = '';
             }
-            $content = $icon.$content; // use CSS for spacing of icons
+            $content = $icon . $content; // use CSS for spacing of icons
             if ($item->helpbutton !== null) {
-                $content = trim($item->helpbutton).html_writer::tag('span', $content, array('class'=>'clearhelpbutton'));
+                $content = trim($item->helpbutton) . html_writer::tag('span', $content, array('class' => 'clearhelpbutton'));
             }
 
             if ($content === '') {
@@ -104,7 +107,7 @@ class block_webgd_community_renderer extends plugin_renderer_base {
             } else if ($item->action instanceof action_link) {
                 //TODO: to be replaced with something else
                 $link = $item->action;
-                $link->text = $icon.$link->text;
+                $link->text = $icon . $link->text;
                 $link->attributes = array_merge($link->attributes, $attributes);
                 $content = $this->output->render($link);
                 $linkrendered = true;
@@ -113,7 +116,7 @@ class block_webgd_community_renderer extends plugin_renderer_base {
             }
 
             // this applies to the li item which contains all child lists too
-            $liclasses = array($item->get_css_type(), 'depth_'.$depth);
+            $liclasses = array($item->get_css_type(), 'depth_' . $depth);
             $liexpandable = array();
             if ($item->has_children() && (!$item->forceopen || $item->collapse)) {
                 $liclasses[] = 'collapsed';
@@ -127,7 +130,7 @@ class block_webgd_community_renderer extends plugin_renderer_base {
             if ($item->isactive === true) {
                 $liclasses[] = 'current_branch';
             }
-            $liattr = array('class' => join(' ',$liclasses)) + $liexpandable;
+            $liattr = array('class' => join(' ', $liclasses)) + $liexpandable;
             // class attribute on the div item which only contains the item content
             $divclasses = array('tree_item');
             if ($isbranch) {
@@ -138,18 +141,18 @@ class block_webgd_community_renderer extends plugin_renderer_base {
             if ($hasicon) {
                 $divclasses[] = 'hasicon';
             }
-            if (!empty($item->classes) && count($item->classes)>0) {
+            if (!empty($item->classes) && count($item->classes) > 0) {
                 $divclasses[] = join(' ', $item->classes);
             }
-            $divattr = array('class'=>join(' ', $divclasses));
+            $divattr = array('class' => join(' ', $divclasses));
             if (!empty($item->id)) {
                 $divattr['id'] = $item->id;
             }
             $content = html_writer::tag('p', $content, $divattr);
             if ($isexpandable) {
-                $content .= $this->navigation_node($item->children, array(), $expansionlimit, $options, $depth+1);
+                $content .= $this->navigation_node($item->children, array(), $expansionlimit, $options, $depth + 1);
             }
-            if (!empty($item->preceedwithhr) && $item->preceedwithhr===true) {
+            if (!empty($item->preceedwithhr) && $item->preceedwithhr === true) {
                 $content = html_writer::empty_tag('hr') . $content;
             }
             $content = html_writer::tag('li', $content, $liattr);

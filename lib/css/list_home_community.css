@@ -1,54 +1,54 @@
 .lista_home {
-	margin-left: 60px;
+    margin-left: 60px;
 }
 
 .conteudo {
-	margin: 2px;
+    margin: 2px;
 }
 
 .titulo_list {
-	color: #41627F;
-	font-size: 24;
-	font-weight: bold;
+    color: #41627F;
+    font-size: 24;
+    font-weight: bold;
 }
 
 .titulo_comunidade {
-	display: table;
+    display: table;
 }
 
 .icone {
-	float: left;
+    float: left;
 }
 
 .nome_comunidade {
-	margin-left: 15px;
-	font-size: 16;
-	margin-top: 5px;
-	float: left;
-	font-weight: bold;
+    margin-left: 15px;
+    font-size: 16;
+    margin-top: 5px;
+    float: left;
+    font-weight: bold;
 }
 
 .nome_comunidade a {
-	color: #41627F !important;
+    color: #41627F !important;
 }
 
 .informacoes_comunide {
-	margin-left: 47px;
+    margin-left: 47px;
 }
 
 .nome_criador {
-	clear: both;
-	margin-top: 5px;
+    clear: both;
+    margin-top: 5px;
 }
 
 .nome_criador a {
-	color: #41627F !important;
-	font-size: 12;
+    color: #41627F !important;
+    font-size: 12;
 }
 
 .separador_lista {
-	margin-top: 15px;
-	margin-bottom: 15px;
-	background-color: #E6E7E7;
-	height: 3px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: #E6E7E7;
+    height: 3px;
 }

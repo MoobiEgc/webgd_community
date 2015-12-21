@@ -1,7 +1,8 @@
 <?php
+
 require_once(dirname(__FILE__) . '/../../../../config.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/commons/TableResouces.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/commons/TableResouces.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
 
 global $USER;
 
@@ -24,11 +25,11 @@ $webgdCommunityDao = new WebgdCommunityDao();
 
 $msg = 'Glossario não Encontrado';
 
-if($map = $webgdCommunityDao->searchGlossaryByCommunityById($idCommunity, $idGlosario)){
-	$msg = 'Erro ao excluir Glossario';
-	if($webgdCommunityDao->deleteGlossaryById($idGlosario)){
-		$msg = 'Glossario deletado com sucesso';
-	}
+if ($map = $webgdCommunityDao->searchGlossaryByCommunityById($idCommunity, $idGlosario)) {
+    $msg = 'Erro ao excluir Glossario';
+    if ($webgdCommunityDao->deleteGlossaryById($idGlosario)) {
+        $msg = 'Glossario deletado com sucesso';
+    }
 }
 
 redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity", $msg, 10);

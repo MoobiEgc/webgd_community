@@ -1,21 +1,14 @@
 <?php
 
+class WebgdDao {
 
-class WebgdDao{
-	private $DB;
-	private $CFG;
+    private $DB;
+    private $CFG;
 
-	function __construct() {
-		global $DB, $CFG;
-		$this->DB = $DB;
-		$this->CFG = $CFG;
-	}
-
-	
-    
-
-    
-
-    
+    function __construct() {
+        global $DB, $CFG;
+        $this->DB = $DB;
+        $this->CFG = $CFG;
+    }
 
 }

@@ -1,7 +1,8 @@
 <?php
+
 require_once(dirname(__FILE__) . '/../../../../config.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/commons/TableResouces.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/commons/TableResouces.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
 
 global $USER;
 
@@ -24,14 +25,14 @@ $webgdCommunityDao = new WebgdCommunityDao();
 
 $msg = 'Video não encontrado';
 
-if($file = $webgdCommunityDao->searchMovieCommunityById($idCommunity, $idFile)){
+if ($file = $webgdCommunityDao->searchMovieCommunityById($idCommunity, $idFile)) {
 
-	if($webgdCommunityDao->deleteMovieByIdUser($idFile, $USER->id)){
+    if ($webgdCommunityDao->deleteMovieByIdUser($idFile, $USER->id)) {
 
-		$msg = 'Video excluido com sucesso';
+        $msg = 'Video excluido com sucesso';
 
-		unlink($file->path);
-	}
+        unlink($file->path);
+    }
 }
 
 redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity", $msg, 10);

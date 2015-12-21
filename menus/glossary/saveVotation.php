@@ -1,4 +1,5 @@
 <?php
+
 require_once(dirname(__FILE__) . '/../../../../config.php');
 global $USER, $CFG, $DB;
 require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');

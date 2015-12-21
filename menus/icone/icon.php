@@ -1,4 +1,5 @@
 <?php
+
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -22,11 +23,11 @@
  */
 require_once(dirname(__FILE__) . '/../../../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/form/IconeForm.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/commons/TableResouces.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/JsResources.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/CssResources.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/form/IconeForm.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/commons/TableResouces.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/JsResources.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/CssResources.php');
 
 
 require_login(1);
@@ -45,66 +46,65 @@ $idIcone = optional_param('glossario', 0, PARAM_INTEGER);
 
 echo $OUTPUT->header('themeselector');
 
-if($idIcone){
-	$webgdCommunityDao = new WebgdCommunityDao();
-	if(!$webgdCommunityDao->searchIconeByCommunityByIdByUser($idCommunity, $idIcone, $USER->id)){
-		redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity&option=2", 'icone não encontrado', 10);
-		echo $OUTPUT->footer();
-		die;
-	}else{
-		echo $OUTPUT->heading('Editar Icone');
-	}
-}else{
-	echo $OUTPUT->heading('Cadastrar Icone');
+if ($idIcone) {
+    $webgdCommunityDao = new WebgdCommunityDao();
+    if (!$webgdCommunityDao->searchIconeByCommunityByIdByUser($idCommunity, $idIcone, $USER->id)) {
+        redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity&option=2", 'icone não encontrado', 10);
+        echo $OUTPUT->footer();
+        die;
+    } else {
+        echo $OUTPUT->heading('Editar Icone');
+    }
+} else {
+    echo $OUTPUT->heading('Cadastrar Icone');
 }
 
 $mform = new IconeForm(null, array('community' => $idCommunity, 'glossario' => $idIcone));
 
 if ($data = $mform->get_data()) {
-	$msg = "";
+    $msg = "";
 
-	if($idIcone){
-		$glossary = $webgdCommunityDao->searchIconeByCommunityById($idIcone);
-		$glossary->name = $data->nome;
-		$glossary->url= $data->link;
+    if ($idIcone) {
+        $glossary = $webgdCommunityDao->searchIconeByCommunityById($idIcone);
+        $glossary->name = $data->nome;
+        $glossary->url = $data->link;
 
-		$msg = "Ocorreu um erro ao editar o icone";
+        $msg = "Ocorreu um erro ao editar o icone";
 
-		if($DB->update_record(TableResouces::$TABLE_PAGE_COMMUNITY_LINKS, $glossary)){
-			$msg = "Icone editado com sucesso";
-		}
-	}else{
+        if ($DB->update_record(TableResouces::$TABLE_PAGE_COMMUNITY_LINKS, $glossary)) {
+            $msg = "Icone editado com sucesso";
+        }
+    } else {
 
-		try{
+        try {
 
-			$transaction = $DB->start_delegated_transaction();
+            $transaction = $DB->start_delegated_transaction();
 
-			$post = new stdClass();
-			$post->community = $data->community;
-			$post->userid = $USER->id;
-			$post->time = time();
-			$post->type = 'icon';
+            $post = new stdClass();
+            $post->community = $data->community;
+            $post->userid = $USER->id;
+            $post->time = time();
+            $post->type = 'icon';
 
-			$idPost = $webgdDao->insertRecordInTableCommunityPost($post);
+            $idPost = $webgdDao->insertRecordInTableCommunityPost($post);
 
-			$icon = new stdClass();
-			$icon->post = $idPost;
-			$icon->name = $data->nome;
-			$icon->url= $data->link;
+            $icon = new stdClass();
+            $icon->post = $idPost;
+            $icon->name = $data->nome;
+            $icon->url = $data->link;
 
-			$DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_LINKS, $icon);
+            $DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_LINKS, $icon);
 
-			$transaction->allow_commit();
+            $transaction->allow_commit();
 
-			$msg = "Icone registrado com sucesso";
-
-		}catch(Exception $e) {
-			$transaction->rollback($e);
-			$msg = "Ocorreu um erro ao salvar o Icone";
-		}
-	}
-	redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity", $msg, 10);
+            $msg = "Icone registrado com sucesso";
+        } catch (Exception $e) {
+            $transaction->rollback($e);
+            $msg = "Ocorreu um erro ao salvar o Icone";
+        }
+    }
+    redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity", $msg, 10);
 } else {
-	$mform->display();
+    $mform->display();
 }
 echo $OUTPUT->footer();

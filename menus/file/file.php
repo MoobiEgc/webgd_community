@@ -43,7 +43,7 @@ if ($idFile) {
         echo "<div class='subTitle'>Editar Arquivo</div><br/>";
     }
 } else {
-   
+
     echo $OUTPUT->heading('<span class="titulo_list">' .
             '<a href="' . $url . '" >' .
             $OUTPUT->heading($community->name, 2, 'titulo_comunidade') .
@@ -57,8 +57,8 @@ if ($idFile) {
 $mform = new CadastrarArquivoForm(null, array('community' => $idCommunity, 'file' => $idFile));
 
 if ($data = $mform->get_data()) {
-    
-    
+
+
     if ($idFile) {
         $msg = get_string('msgErro', 'block_webgd_community');
 
@@ -70,7 +70,7 @@ if ($data = $mform->get_data()) {
             }
         }
     } else {
-       
+
         $name = $mform->get_new_filename('attachment');
 
         $random = rand();
@@ -80,24 +80,24 @@ if ($data = $mform->get_data()) {
 
         $msg = get_string('msgErro', 'block_webgd_community');
 
-        
-        
+
+
         if ($mform->save_file('attachment', $path, true)) {
-            
-            try{
-                
+
+            try {
+
 
                 $transaction = $DB->start_delegated_transaction();
-                
-               
+
+
                 $post = new stdClass();
                 $post->community = $idCommunity;
                 $post->userid = $USER->id;
                 $post->time = time();
                 $post->type = 'file';
 
-                 
-                
+
+
                 $idPost = $webgdCommunityDao->insertRecordInTableCommunityPost($post);
 
                 $arquivo = new stdClass();
@@ -110,8 +110,7 @@ if ($data = $mform->get_data()) {
                 $transaction->allow_commit();
 
                 $msg = 'Arquivo Cadastrado com sucesso';
-
-            }catch(Exception $e){
+            } catch (Exception $e) {
                 $transaction->rollback($e);
             }
         }

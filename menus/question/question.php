@@ -1,4 +1,5 @@
 <?php
+
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -22,11 +23,11 @@
  */
 require_once(dirname(__FILE__) . '/../../../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/form/QuestionForm.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/commons/TableResouces.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/JsResources.php');
-require_once($CFG->dirroot.'/blocks/webgd_community/lib/class/CssResources.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/form/QuestionForm.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/commons/TableResouces.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/JsResources.php');
+require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/CssResources.php');
 require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/CssResources.php');
 
 require_login(1);
@@ -54,125 +55,125 @@ $url = $CFG->wwwroot . '/blocks/webgd_community/view.php?community=' . $idCommun
 
 echo $OUTPUT->header('themeselector');
 
-if($idQuestion){
-	$webgdCommunityDao = new WebgdCommunityDao();
-	if(!$webgdCommunityDao->searchQuestionByCommunityById($idQuestion)){
-		redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity&option=3", 'Arquivo não encontrado'.$idQuestion, 10);
-		echo $OUTPUT->footer();
-		die;
-	}else{
-		echo $OUTPUT->heading('<span class="titulo_list">' .
-						'<a href="' . $url . '" >' .
-				 $OUTPUT->heading($community->name , 2, 'titulo_comunidade') .
-				    '</a></span><br/>');
-		echo "<div class='subTitle'>Editar Enquete</div><br/>";
-	}
-}else{
-	  echo $OUTPUT->heading('<span class="titulo_list">' .
-				  	'<a href="' . $url . '" >' .
-	       $OUTPUT->heading($community->name , 2, 'titulo_comunidade') .
-				    '</a></span><br/>');
-		echo "<div class='subTitle'>Cadastrar Enquete</div><br/>";
+if ($idQuestion) {
+    $webgdCommunityDao = new WebgdCommunityDao();
+    if (!$webgdCommunityDao->searchQuestionByCommunityById($idQuestion)) {
+        redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity&option=3", 'Arquivo não encontrado' . $idQuestion, 10);
+        echo $OUTPUT->footer();
+        die;
+    } else {
+        echo $OUTPUT->heading('<span class="titulo_list">' .
+                '<a href="' . $url . '" >' .
+                $OUTPUT->heading($community->name, 2, 'titulo_comunidade') .
+                '</a></span><br/>');
+        echo "<div class='subTitle'>Editar Enquete</div><br/>";
+    }
+} else {
+    echo $OUTPUT->heading('<span class="titulo_list">' .
+            '<a href="' . $url . '" >' .
+            $OUTPUT->heading($community->name, 2, 'titulo_comunidade') .
+            '</a></span><br/>');
+    echo "<div class='subTitle'>Cadastrar Enquete</div><br/>";
 }
 
 $mform = new QuestionForm(null, array('community' => $idCommunity, 'question' => $idQuestion));
 
 
 if ($data = $mform->get_data()) {
-	$msg = "";
+    $msg = "";
 
-	if($idQuestion){
-		$question = $webgdCommunityDao->searchQuestionByCommunityById($idQuestion);
-		$question->name = $data->nome;
-		$question->enabled = $data->enable;
-		$question->startdate = DateTime::createFromFormat('d-m-Y', str_replace("/", "-", $data->from))->getTimestamp();
-		$question->enddate = DateTime::createFromFormat('d-m-Y', str_replace("/", "-", $data->to))->getTimestamp();
+    if ($idQuestion) {
+        $question = $webgdCommunityDao->searchQuestionByCommunityById($idQuestion);
+        $question->name = $data->nome;
+        $question->enabled = $data->enable;
+        $question->startdate = DateTime::createFromFormat('d-m-Y', str_replace("/", "-", $data->from))->getTimestamp();
+        $question->enddate = DateTime::createFromFormat('d-m-Y', str_replace("/", "-", $data->to))->getTimestamp();
 
-		$attQuestion = $mform->get_new_filename('attachmentQuestion');
+        $attQuestion = $mform->get_new_filename('attachmentQuestion');
 
-		$random = rand();
-    $name = $random . '_' . $attQuestion;
+        $random = rand();
+        $name = $random . '_' . $attQuestion;
 
-		$pathAttQuestion = "{$CFG->dataroot}/webgd_community/$name";
+        $pathAttQuestion = "{$CFG->dataroot}/webgd_community/$name";
 
-		if ($mform->save_file('attachmentQuestion', $pathAttQuestion, true)) {
-				$question->attachmentQuestion = $pathAttQuestion;
-		}
+        if ($mform->save_file('attachmentQuestion', $pathAttQuestion, true)) {
+            $question->attachmentQuestion = $pathAttQuestion;
+        }
 
-		//Deleta todos os videos atuais e insere os novos que sobraram
+        //Deleta todos os videos atuais e insere os novos que sobraram
 
-		$webgdCommunityDao->deleteAskQuestionByCommunity($question->id);
+        $webgdCommunityDao->deleteAskQuestionByCommunity($question->id);
 
-		$correrVideos=0;
-		foreach ($data->video as $video){
-			$perguntaQuestao = new stdClass();
-			$perguntaQuestao->name_question = $data->pergunta[$correrVideos];
-			$perguntaQuestao->video = $video;
-			$perguntaQuestao->question = $question->id;
-			$DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION, $perguntaQuestao);
-			$correrVideos++;
-		}
+        $correrVideos = 0;
+        foreach ($data->video as $video) {
+            $perguntaQuestao = new stdClass();
+            $perguntaQuestao->name_question = $data->pergunta[$correrVideos];
+            $perguntaQuestao->video = $video;
+            $perguntaQuestao->question = $question->id;
+            $DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION, $perguntaQuestao);
+            $correrVideos++;
+        }
 
-		$msg = "Ocorreu um erro ao editar a enquete";
+        $msg = "Ocorreu um erro ao editar a enquete";
 
-		if($DB->update_record(TableResouces::$TABLE_PAGE_COMMUNITY_QUESTION, $question)){
-			$msg = "Enquete editada com sucesso";
-		}
-	}else{
+        if ($DB->update_record(TableResouces::$TABLE_PAGE_COMMUNITY_QUESTION, $question)) {
+            $msg = "Enquete editada com sucesso";
+        }
+    } else {
 
-		$attQuestion = $mform->get_new_filename('attachmentQuestion');
+        $attQuestion = $mform->get_new_filename('attachmentQuestion');
 
-		$random = rand();
-    $name = $random . '_' . $attQuestion;
+        $random = rand();
+        $name = $random . '_' . $attQuestion;
 
-		$pathAttQuestion = "{$CFG->dataroot}/webgd_community/$name";
+        $pathAttQuestion = "{$CFG->dataroot}/webgd_community/$name";
 
-		$msg = get_string('msgErro', 'block_webgd_community');
+        $msg = get_string('msgErro', 'block_webgd_community');
 
-		if (!($mform->save_file('attachmentQuestion', $pathAttQuestion, true))) {
-				$pathAttQuestion = "";
-		}
-			try{
+        if (!($mform->save_file('attachmentQuestion', $pathAttQuestion, true))) {
+            $pathAttQuestion = "";
+        }
+        try {
 
-				$transaction = $DB->start_delegated_transaction();
+            $transaction = $DB->start_delegated_transaction();
 
-				$post = new stdClass();
-				$post->community = $data->community;
-				$post->userid = $USER->id;
-				$post->time = time();
-				$post->type = 'question';
+            $post = new stdClass();
+            $post->community = $data->community;
+            $post->userid = $USER->id;
+            $post->time = time();
+            $post->type = 'question';
 
-				$idPost = $webgdDao->insertRecordInTableCommunityPost($post);
+            $idPost = $webgdDao->insertRecordInTableCommunityPost($post);
 
-				$question = new stdClass();
-				$question->name = $data->nome;
-				$question->enabled = $data->enable;
-				$question->startdate = DateTime::createFromFormat('d-m-Y', str_replace("/", "-", $data->from))->getTimestamp();
-				$question->enddate = DateTime::createFromFormat('d-m-Y', str_replace("/", "-", $data->to))->getTimestamp();
-				$question->post = $idPost;
-				$question->attachmentQuestion = $pathAttQuestion;
+            $question = new stdClass();
+            $question->name = $data->nome;
+            $question->enabled = $data->enable;
+            $question->startdate = DateTime::createFromFormat('d-m-Y', str_replace("/", "-", $data->from))->getTimestamp();
+            $question->enddate = DateTime::createFromFormat('d-m-Y', str_replace("/", "-", $data->to))->getTimestamp();
+            $question->post = $idPost;
+            $question->attachmentQuestion = $pathAttQuestion;
 
-				$idQuestion = $DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_QUESTION, $question);
+            $idQuestion = $DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_QUESTION, $question);
 
-				$correrVideos=0;
-				foreach ($data->video as $video){
-					$perguntaQuestao = new stdClass();
-					$perguntaQuestao->name_question = $data->pergunta[$correrVideos];
-					$perguntaQuestao->video = $video;
-					$perguntaQuestao->question = $idQuestion;
-					$DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION, $perguntaQuestao);
-					$correrVideos++;
-				}
+            $correrVideos = 0;
+            foreach ($data->video as $video) {
+                $perguntaQuestao = new stdClass();
+                $perguntaQuestao->name_question = $data->pergunta[$correrVideos];
+                $perguntaQuestao->video = $video;
+                $perguntaQuestao->question = $idQuestion;
+                $DB->insert_record(TableResouces::$TABLE_PAGE_COMMUNITY_ANSWER_QUESTION, $perguntaQuestao);
+                $correrVideos++;
+            }
 
-				$transaction->allow_commit();
-				$msg = "Enquete Registrada com sucesso";
-			}catch(Exception $e){
-				$transaction->rollback($e);
-				$msg = "Ocorreu um erro ao salvar a enquete";
-			}
-	}
-	redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity", $msg, 10);
+            $transaction->allow_commit();
+            $msg = "Enquete Registrada com sucesso";
+        } catch (Exception $e) {
+            $transaction->rollback($e);
+            $msg = "Ocorreu um erro ao salvar a enquete";
+        }
+    }
+    redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity", $msg, 10);
 } else {
-	$mform->display();
+    $mform->display();
 }
 echo $OUTPUT->footer();

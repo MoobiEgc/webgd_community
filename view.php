@@ -138,79 +138,79 @@ if ($community) {
         //}
 
         echo "<div class='menus'>
-		<div class='menu1'>
+        <div class='menu1'>
 
           <div class='iconeBt'>
-				<span class='icone'>
-					<img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_06 . "'>
-				</span>
-				<span class='nome_menu'>
-					" . html_writer::tag('a', 'Arquivos', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=5")) . "
-				</span>
-			</div>
-			<div class='iconeBt'>
-				<span class='icone'>
-					<img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_04 . "'>
-				</span>
-				<span class='nome_menu'>
-					" . html_writer::tag('a', 'Fotos', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=6")) . "
-				</span>
-			</div>
+                <span class='icone'>
+                    <img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_06 . "'>
+                </span>
+                <span class='nome_menu'>
+                    " . html_writer::tag('a', 'Arquivos', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=5")) . "
+                </span>
+            </div>
+            <div class='iconeBt'>
+                <span class='icone'>
+                    <img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_04 . "'>
+                </span>
+                <span class='nome_menu'>
+                    " . html_writer::tag('a', 'Fotos', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=6")) . "
+                </span>
+            </div>
 
 
 
-		</div>
-		<div class='separador_menu'></div>
-		<div class='menu1'>
+        </div>
+        <div class='separador_menu'></div>
+        <div class='menu1'>
 
-			<div class='iconeBt'>
-				<span class='icone'>
-					<img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_05 . "'>
-				</span>
-				<span class='nome_menu'>
-					" . html_writer::tag('a', 'Vídeo', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=7")) . "
-				</span>
-			</div>
+            <div class='iconeBt'>
+                <span class='icone'>
+                    <img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_05 . "'>
+                </span>
+                <span class='nome_menu'>
+                    " . html_writer::tag('a', 'Vídeo', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=7")) . "
+                </span>
+            </div>
                         <div class='iconeBt'>
-				<span class='icone'>
-					<img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_09 . "'>
-				</span>
-				<span class='nome_menu'>
-					" . html_writer::tag('a', 'Gravar vídeo', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/menus/record/record.php?community={$community->id}")) . "
-				</span>
-			</div>
+                <span class='icone'>
+                    <img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_09 . "'>
+                </span>
+                <span class='nome_menu'>
+                    " . html_writer::tag('a', 'Gravar vídeo', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/menus/record/record.php?community={$community->id}")) . "
+                </span>
+            </div>
 
-		</div>
-		<div class='separador_menu'></div>
-		<div class='menu1'>
-			<div class='iconeBt'>
-				<span class='icone'>
-					<img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_07 . "'>
-				</span>
-				<span class='nome_menu'>
-					" . html_writer::tag('a', 'Enquetes', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=3")) . "
-				</span>
-			</div>
+        </div>
+        <div class='separador_menu'></div>
+        <div class='menu1'>
+            <div class='iconeBt'>
+                <span class='icone'>
+                    <img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_07 . "'>
+                </span>
+                <span class='nome_menu'>
+                    " . html_writer::tag('a', 'Enquetes', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=3")) . "
+                </span>
+            </div>
 
-			<div class='iconeBt'>
-				<span class='icone'>
-					<img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_03 . "'>
-				</span>
-				<span class='nome_menu'>
-					" . html_writer::tag('a', 'Glossário', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=8")) . "
-				</span>
-			</div>
+            <div class='iconeBt'>
+                <span class='icone'>
+                    <img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_03 . "'>
+                </span>
+                <span class='nome_menu'>
+                    " . html_writer::tag('a', 'Glossário', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=8")) . "
+                </span>
+            </div>
                         <div class='iconeBt'>
-				<span class='icone'>
-					<img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_02 . "'>
-				</span>
-				<span class='nome_menu'>
+                <span class='icone'>
+                    <img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_02 . "'>
+                </span>
+                <span class='nome_menu'>
                                             " . html_writer::tag('a', 'Cacoo', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=2&suboption=1")) . "
-				</span>
-			</div>
-		</div>
-		<div style='clear:both'></div>
-	  </div>";
+                </span>
+            </div>
+        </div>
+        <div style='clear:both'></div>
+      </div>";
 
 
         echo $community->description;
@@ -366,7 +366,7 @@ function filesPage($webgdCommunity, $idCommunity) {
 
     $listFiles = $webgdCommunity->mediaByCommunity($idCommunity, $USER->id, 'file');
 
-      
+
     Commons::printListFile($idCommunity, $listFiles);
 }
 

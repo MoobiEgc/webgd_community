@@ -18,7 +18,7 @@ videoConceito -> video_conceito
 videoExemplo -> video_exemplo
 totalVotos -> total_votos
 totalVotosSim -> total_votos_sim
-totalVotosNao -> total_votos_nao	
+totalVotosNao -> total_votos_nao    
 
 
 
