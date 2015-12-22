@@ -2,8 +2,8 @@
 
 class ImageResources {
 
-    CONST MAO_LIBRAS = '/theme/clean/pix/icons/mao-libras.png';
-    CONST MAO_SIGNWRIGTH = '/theme/clean/pix/icons/mao-signwrigth.png';
+    CONST MAO_LIBRAS = '/theme/moobi/pix/icons/mao-libras.png';
+    CONST MAO_SIGNWRIGTH = '/theme/moobi/pix/icons/mao-signwrigth.png';
     CONST COMUNIDADES = '/blocks/webgd_community/lib/icones/comunidades.png';
     CONST MINHAS_COMUNIDADES = '/blocks/webgd_community/lib/icones/minhas_comunidades.png';
     CONST CRIAR_COMUNIDADES = '/blocks/webgd_community/lib/icones/criar_comunidade.png';
