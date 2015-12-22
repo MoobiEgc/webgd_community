@@ -31,7 +31,7 @@ $url = $CFG->wwwroot . '/blocks/webgd_community/view.php?community=' . $idCommun
 if ($idText) {
     $webgdCommunityDao = new WebgdCommunityDao();
     if (!$textData = $webgdCommunityDao->searchTextById($idText)) {
-        redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity&option=1", 'Arquivo não encontrado', 10);
+        redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity&option=1", get_string('arqNaoEnc','block_webgd_community'), 10);
         echo $OUTPUT->footer();
         die;
     } else {

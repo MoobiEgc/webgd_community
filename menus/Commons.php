@@ -108,9 +108,9 @@ class Commons {
         } else {
             if ($filter) {
                 echo $filterBar;
-                echo '<br>Nenhum termo registrado.';
+                echo '<br>'.get_string('nenhumTerReg','block_webgd_community').'';
             } else {
-                echo '<br>Nenhum termo registrado.';
+                echo '<br>'.get_string('nenhumTerReg','block_webgd_community').'';
             }
         }
     }
@@ -145,7 +145,7 @@ class Commons {
                 </div>";
             }
         } else {
-            echo '<br>Nenhum icone registrado';
+            echo '<br>'.get_string('nenhumIcoReg','block_webgd_community').'';
         }
     }
 
@@ -233,7 +233,7 @@ class Commons {
                 </div>";
             }
         } else {
-            echo '<br>Nenhuma atividade registrada.';
+            echo '<br>'.get_string('nenhumaActReg','block_webgd_community').'';
         }
     }
 
@@ -270,7 +270,7 @@ class Commons {
                 </div>";
             }
         } else {
-            echo '<br>Nenhum Arquivo Registrado';
+            echo '<br>'.get_string('nenhumArqReg','block_webgd_community').'';
         }
     }
 
@@ -309,7 +309,7 @@ class Commons {
                 </div>";
             }
         } else {
-            echo '<br>Nenhuma Imagem Registrada';
+            echo '<br>'.get_string('nenhumaImgReg','block_webgd_community').'';
         }
     }
 
@@ -351,7 +351,7 @@ class Commons {
                 </div>";
             }
         } else {
-            echo '<br>Nenhum Video Registrado';
+            echo '<br>'.get_string('nenhumVidReg','block_webgd_community').'';
         }
     }
 
@@ -379,7 +379,7 @@ class Commons {
                 </div>";
             }
         } else {
-            echo '<br>Nenhum Video Registrado';
+            echo '<br>'.get_string('nenhumVidReg','block_webgd_community').'';
         }
     }
 
@@ -422,7 +422,7 @@ class Commons {
                 }
             }
         } else {
-            echo '<br>Nenhuma enquete registrada';
+            echo '<br>'.get_string('nenhumaEnqReg','block_webgd_community').'';
         }
     }
 
@@ -477,7 +477,7 @@ class Commons {
           <span class='botao_edicao' style='cursor:pointer'><img src='" . $CFG->wwwroot . ImageResources::EDITAR . "' onclick=location.href='" . $CFG->wwwroot . "/blocks/webgd_community/menus/text/text.php?text={$post->post}&community=$idCommunity'></span>";
         }
         $resposta .= "<span class='nome_criador'>" . html_writer::tag('a', $community->username, array('href' => $CFG->wwwroot . '/user/profile.php?id=' . $community->userid)) . "</span>
-          publicou em
+          ".get_string('publicouEm','block_webgd_community')."
           <div class='data'>" . strftime('%d de %B de %Y às %H %M %S ', $community->time) . "</div>
         </span>
       </div>
@@ -524,7 +524,7 @@ class Commons {
           <span class='botao_edicao' style='cursor:pointer'><img src='" . $CFG->wwwroot . ImageResources::EDITAR . "' onclick=location.href='" . $CFG->wwwroot . "/blocks/webgd_community/menus/file/file.php?file={$post->post}&community=$idCommunity'></span>";
         }
         $resposta .= "<span class='nome_criador'>" . html_writer::tag('a', $community->username, array('href' => $CFG->wwwroot . '/user/profile.php?id=' . $community->userid)) . "</span>
-          publicou um arquivo em
+          ".get_string('publicouArq','block_webgd_community')."
           <div class='data'>" . strftime('%d de %B de %Y às %H %M %S ', $community->time) . "</div>
         </span>
       </div>
@@ -587,7 +587,7 @@ class Commons {
         <span class='botao_edicao' style='cursor:pointer'><img src='" . $CFG->wwwroot . ImageResources::EDITAR . "' onclick=location.href='" . $CFG->wwwroot . "/blocks/webgd_community/menus/photo/photo.php?file={$post->post}&community=$idCommunity'></span>";
         }
         $resposta .= "<span class='nome_criador'>" . html_writer::tag('a', $community->username, array('href' => $CFG->wwwroot . '/user/profile.php?id=' . $community->userid)) . "</span>
-          publicou uma imagem em
+          ".get_string('publicouImg','block_webgd_community')."
           <div class='data'>" . strftime('%d de %B de %Y às %H %M %S ', $community->time) . "</div>
         </span>
       </div>
@@ -636,7 +636,7 @@ class Commons {
         $resposta .= "
           <span class='botao_download' style='cursor:pointer'><img src='" . $CFG->wwwroot . ImageResources::DOWNLOAD . "' onclick=location.href='" . $CFG->wwwroot . "/blocks/webgd_community/menus/file/downloadFile.php?file={$post->post}' ></span>
           <span class='nome_criador'>" . html_writer::tag('a', $community->username, array('href' => $CFG->wwwroot . '/user/profile.php?id=' . $community->userid)) . "</span>
-          publicou um vídeo em
+          ".get_string('publicouVid','block_webgd_community')."
           <div class='data'>" . strftime('%d de %B de %Y às %H %M %S ', $community->time) . "</div>
         </span>
       </div>
@@ -682,7 +682,7 @@ class Commons {
 
         echo"</span><span class='nome_post'>
           <span class='nome_criador'>" . html_writer::tag('a', $community->username, array('href' => $CFG->wwwroot . '/user/profile.php?id=' . $community->userid)) . "</span>
-          publicou um icone em
+          ".get_string('publicouIco','block_webgd_community')."
           <div class='data'>" . strftime('%d de %B de %Y às %H %M %S ', $community->time) . "</div>
         </span>
       </div>
@@ -714,7 +714,7 @@ class Commons {
           <span class='botao_edicao' style='cursor:pointer'><img src='" . $CFG->wwwroot . ImageResources::EDITAR . "' onclick=location.href='" . $CFG->wwwroot . "/blocks/webgd_community/menus/map/map.php?map={$post->post}&community=$idCommunity'></span>";
         }
         $resposta .= "<span class='nome_criador'>" . html_writer::tag('a', $community->username, array('href' => $CFG->wwwroot . '/user/profile.php?id=' . $community->userid)) . "</span>
-          publicou uma atividade em
+          ".get_string('publicouAti','block_webgd_community')."
           <div class='data'>" . strftime('%d de %B de %Y às %H %M %S ', $community->time) . "</div>
         </span>
       </div>
@@ -767,7 +767,7 @@ class Commons {
             }
 
             $resposta .= "<span class='nome_criador'>" . html_writer::tag('a', $community->username, array('href' => $CFG->wwwroot . '/user/profile.php?id=' . $community->userid)) . "</span>
-              publicou uma enquete em
+              ".get_string('publicouEnq','block_webgd_community')."
               <div class='data'>" . strftime('%d de %B de %Y às %H %M %S ', $community->time) . "</div>
             </span>
                     </div>
@@ -847,7 +847,7 @@ class Commons {
             }
 
             $resposta .= "</span>&nbsp;<span class='nome_criador'>" . html_writer::tag('a', /* $comment->username */ "teste", array('href' => $CFG->wwwroot . '/user/profile.php?id=' . $comment->userid)) . "</span>
-                publicou em
+                ".get_string('publicouEm','block_webgd_community')."
                 <div class='data'>" . strftime('%d de %B de %Y às %H %M %S ', $comment->time) . "</div>
               </span>
             <div class='informacoes_post'>

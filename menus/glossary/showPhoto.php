@@ -21,5 +21,5 @@ if ($fileBd) {
     header('Content-Length: ' . filesize($file));
     readfile($file);
 } else {
-    echo 'Arquivo nao encontrado';
+    echo get_string('arqNaoEnc','block_webgd_community');
 }

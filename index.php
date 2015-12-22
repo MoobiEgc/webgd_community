@@ -41,7 +41,7 @@ echo $OUTPUT->header('themeselector');
 $webgdCommunityDao = new WebgdCommunityDao();
 
 if ($listCommunity = $webgdCommunityDao->getListCommunity()) {
-    echo '<span class="titulo_list">' . $OUTPUT->heading('Comunidades') . '</span>';
+    echo '<span class="titulo_list">' . $OUTPUT->heading(get_string('comunidades', 'block_webgd_community')) . '</span>';
     echo '<div class="lista_home">';
     echo '<span class="titulo_list"></span>';
     foreach ($listCommunity as $community) {

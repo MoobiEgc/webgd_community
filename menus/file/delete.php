@@ -16,14 +16,14 @@ $PAGE->set_pagelayout('standard');
 
 echo $OUTPUT->header('themeselector');
 
-echo $OUTPUT->heading('Deletar Arquivo');
+echo $OUTPUT->heading(get_string('deletarArq','block_webgd_community'));
 
 $idFile = optional_param('file', 0, PARAM_INTEGER);
 $idCommunity = optional_param('community', 0, PARAM_INTEGER);
 
 $webgdCommunityDao = new WebgdCommunityDao();
 
-$msg = 'Arquivo Não Encontrado';
+$msg = get_string('nenhumArqEnc','block_webgd_community');
 
 if ($webgdCommunityDao->searchFileCommunityById($idCommunity, $idFile)) {
 
@@ -31,7 +31,7 @@ if ($webgdCommunityDao->searchFileCommunityById($idCommunity, $idFile)) {
 
     if ($webgdCommunityDao->deleteFileByIdUser($file->id, $USER->id, $file->post)) {
 
-        $msg = 'Arquivo excluido com sucesso';
+        $msg = get_string('deletarArqSuc','block_webgd_community');
 
         unlink($file->path);
     }

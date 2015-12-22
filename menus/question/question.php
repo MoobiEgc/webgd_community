@@ -58,7 +58,7 @@ echo $OUTPUT->header('themeselector');
 if ($idQuestion) {
     $webgdCommunityDao = new WebgdCommunityDao();
     if (!$webgdCommunityDao->searchQuestionByCommunityById($idQuestion)) {
-        redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity&option=3", 'Arquivo não encontrado' . $idQuestion, 10);
+        redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity&option=3", get_string('arqNaoEnc','block_webgd_community') . $idQuestion, 10);
         echo $OUTPUT->footer();
         die;
     } else {

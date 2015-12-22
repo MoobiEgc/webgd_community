@@ -87,10 +87,10 @@ if ($community) {
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> ... </button>
             <ul class="dropdown-menu">';
             if ($USER->id == $community->userid) {
-                echo '<li><a href="' . $CFG->wwwroot . '/blocks/webgd_community/module.php?community=' . $idCommunity . '" >Editar comunidade</a></li>';
+                echo '<li><a href="' . $CFG->wwwroot . '/blocks/webgd_community/module.php?community=' . $idCommunity . '" >'.get_string('editarComunidade','block_webgd_community').'</a></li>';
             }
-            echo '<li><a href="#" onClick="open_participantes()">Exibir membros</a></li>
-            <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=' . $emaillist . '" target="_wblank">Enviar e-mail para os participantes</a></li>' .
+            echo '<li><a href="#" onClick="open_participantes()">'.get_string('mostrarMembros', 'block_webgd_community').'</a></li>
+            <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=' . $emaillist . '" target="_wblank">'.get_string('enviarEmail', 'block_webgd_community').'</a></li>' .
             '<li>' . '<span class="titulo_list">' . html_writer::tag('a', "<img class='botao_comunidade' src='" . $comunidadeSair . "' alt='" . get_string('sair', 'block_webgd_community') . "'>", array('onClick' => 'return confirm("Tem certeza que deseja sair da comunidade?");', 'title' => get_string('sair', 'block_webgd_community'), 'class' => 'participar', 'href' => "view.php?community={$community->id}&confirm=2")) . '</span><div style="clear:both"></div>' . '</li>';
             '<li role="separator" class="divider"></li>';
             echo '<div id="modal_participantes">
@@ -114,10 +114,10 @@ if ($community) {
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> ... </button>
               <ul class="dropdown-menu">';
                 if ($USER->id == $community->userid) {
-                    echo '<li><a href="' . $CFG->wwwroot . '/blocks/webgd_community/module.php?community=' . $idCommunity . '" >Editar comunidade</a></li>';
+                    echo '<li><a href="' . $CFG->wwwroot . '/blocks/webgd_community/module.php?community=' . $idCommunity . '" >'.get_string('editarComunidade', 'block_webgd_community').'</a></li>';
                 }
                 echo '<li><a href="#" onClick="open_participantes();">Exibir membros</a></li>
-              <li><a href="#">Enviar e-mail para todos</a></li>
+              <li><a href="#">'.get_string('enviarEmailTod','block_webgd_community').'</a></li>
               <li>' . '<span class="titulo_list">' . html_writer::tag('a', "<img class='botao_comunidade' src='" . $comunidadeImg . "' alt='" . get_string('participar', 'block_webgd_community') . "'>", array('title' => get_string('participar', 'block_webgd_community'), 'class' => 'participar', 'href' => "view.php?community={$community->id}&confirm=1")) . '</span><div style="clear:both"></div>' . ' </li>' .
                 '<li role="separator" class="divider"></li>';
                 echo '<div id="modal_participantes">
@@ -145,7 +145,7 @@ if ($community) {
                     <img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_06 . "'>
                 </span>
                 <span class='nome_menu'>
-                    " . html_writer::tag('a', 'Arquivos', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=5")) . "
+                    " . html_writer::tag('a', get_string('arquivos','block_webgd_community'), array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=5")) . "
                 </span>
             </div>
             <div class='iconeBt'>
@@ -153,7 +153,7 @@ if ($community) {
                     <img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_04 . "'>
                 </span>
                 <span class='nome_menu'>
-                    " . html_writer::tag('a', 'Fotos', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=6")) . "
+                    " . html_writer::tag('a', get_string('fotos','block_webgd_community'), array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=6")) . "
                 </span>
             </div>
 
@@ -168,7 +168,7 @@ if ($community) {
                     <img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_05 . "'>
                 </span>
                 <span class='nome_menu'>
-                    " . html_writer::tag('a', 'Vídeo', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=7")) . "
+                    " . html_writer::tag('a', get_string('videos','block_webgd_community'), array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=7")) . "
                 </span>
             </div>
                         <div class='iconeBt'>
@@ -176,7 +176,7 @@ if ($community) {
                     <img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_09 . "'>
                 </span>
                 <span class='nome_menu'>
-                    " . html_writer::tag('a', 'Gravar vídeo', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/menus/record/record.php?community={$community->id}")) . "
+                    " . html_writer::tag('a', get_string('gravarVideo','block_webgd_community'), array('href' => "{$CFG->wwwroot}/blocks/webgd_community/menus/record/record.php?community={$community->id}")) . "
                 </span>
             </div>
 
@@ -188,7 +188,7 @@ if ($community) {
                     <img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_07 . "'>
                 </span>
                 <span class='nome_menu'>
-                    " . html_writer::tag('a', 'Enquetes', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=3")) . "
+                    " . html_writer::tag('a', get_string('enquetes','block_webgd_community'), array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=3")) . "
                 </span>
             </div>
 
@@ -197,7 +197,7 @@ if ($community) {
                     <img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_03 . "'>
                 </span>
                 <span class='nome_menu'>
-                    " . html_writer::tag('a', 'Glossário', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=8")) . "
+                    " . html_writer::tag('a', get_string('glossario','block_webgd_community'), array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=8")) . "
                 </span>
             </div>
                         <div class='iconeBt'>
@@ -205,7 +205,7 @@ if ($community) {
                     <img src='" . $CFG->wwwroot . ImageResources::ICONE_MENU_02 . "'>
                 </span>
                 <span class='nome_menu'>
-                                            " . html_writer::tag('a', 'Cacoo', array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=2&suboption=1")) . "
+                                            " . html_writer::tag('a', get_string('cacoo','block_webgd_community'), array('href' => "{$CFG->wwwroot}/blocks/webgd_community/view.php?community={$community->id}&option=2&suboption=1")) . "
                 </span>
             </div>
         </div>
@@ -302,20 +302,20 @@ function homePage($webgbDao, $idCommunity, $cam) {
         <div class="arrow"></div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <i class="fa fa-file"></i> Atualizar Status
+                <i class="fa fa-file"></i> '.get_string('atualizarStatus','block_webgd_community').'
             </div>
             <div class="panel-body">
                 <div class="">
                     <textarea name="message" cols="30" rows="10" id="status_message"
                               class="form-control message"
                               style="height: 62px; width: 95%; overflow: hidden;"
-                              placeholder="Escreva aqui o seu post"></textarea>
+                              placeholder="'.get_string('escrevaSeuPost','block_webgd_community').'"></textarea>
                 </div>
             </div>
             <div class="panel-footer">
                 <div class="row">
                     <div class="col-md-5">
-                        <input type="button" name="submit" value="Enviar"
+                        <input type="button" name="submit" value="'.get_string('enviar','block_webgd_community').'"
                               style="margin-left: 50px"
                                class="btn btn-primary" onclick="salvar()">
                     </div>
@@ -335,7 +335,7 @@ function homePage($webgbDao, $idCommunity, $cam) {
             } else {
                 Commons::printListPost($community, 0, $idCommunity);
             }
-            echo '&nbsp;<span style="color:#41627F;">Responder</span><div class="comentarios">';
+            echo '&nbsp;<span style="color:#41627F;">'.get_string('responder','block_webgd_community').'</span><div class="comentarios">';
             Commons::printTimelineComments($community->id);
             echo '<form method="post" enctype="multipart/form-data" id="form-comment-' . $community->id . '" class="form-comment" onsubmit="enviaComentario(' . $community->id . '); return false;">
                     <input type="hidden" name="post_id_comment" value="' . $community->id . '">
@@ -343,7 +343,7 @@ function homePage($webgbDao, $idCommunity, $cam) {
             foreach ($images as $img) {
                 echo $OUTPUT->user_picture($img, array('size' => 25, 'alttext' => false, 'link' => false));
             }
-            echo '<input style="margin:4px 0 0 5px; width:75%;" type="text" name="comment" class="comment" placeholder="Escreva um comentário...">
+            echo '<input style="margin:4px 0 0 5px; width:75%;" type="text" name="comment" class="comment" placeholder="">
                     </div>
                     </form></div>';
             if ($ultimo_post == 0) {

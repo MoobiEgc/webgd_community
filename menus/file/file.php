@@ -32,7 +32,7 @@ $url = $CFG->wwwroot . '/blocks/webgd_community/view.php?community=' . $idCommun
 if ($idFile) {
     $webgdCommunityDao = new WebgdCommunityDao();
     if (!$webgdCommunityDao->searchFileCommunityById($idCommunity, $idFile)) {
-        redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity&option=1", 'Arquivo não encontrado', 10);
+        redirect("{$CFG->wwwroot}/blocks/webgd_community/view.php?community=$idCommunity&option=1", get_string('arqNaoEnc','block_webgd_community'), 10);
         echo $OUTPUT->footer();
         die;
     } else {
@@ -40,7 +40,7 @@ if ($idFile) {
                 '<a href="' . $url . '" >' .
                 $OUTPUT->heading($community->name, 2, 'titulo_comunidade') .
                 '</a></span><br/>');
-        echo "<div class='subTitle'>Editar Arquivo</div><br/>";
+        echo "<div class='subTitle'>".get_string('editarArq','block_webgd_community')."</div><br/>";
     }
 } else {
 
@@ -48,7 +48,7 @@ if ($idFile) {
             '<a href="' . $url . '" >' .
             $OUTPUT->heading($community->name, 2, 'titulo_comunidade') .
             '</a></span><br/>');
-    echo "<div class='subTitle'>Cadastrar Arquivo</div><br/>";
+    echo "<div class='subTitle'>".get_string('cadastrarArq','block_webgd_community')."</div><br/>";
 }
 
 
@@ -66,7 +66,7 @@ if ($data = $mform->get_data()) {
             $arquivo->name = $data->nome;
 
             if ($id = $DB->update_record(TableResouces::$TABLE_PAGE_COMMUNITY_MEDIA, $arquivo)) {
-                $msg = 'Arquivo editado com sucesso';
+                $msg = get_string('editarArqSuc','block_webgd_community');
             }
         }
     } else {
@@ -109,7 +109,7 @@ if ($data = $mform->get_data()) {
 
                 $transaction->allow_commit();
 
-                $msg = 'Arquivo Cadastrado com sucesso';
+                $msg = get_string('cadastrarArqSuc', 'block_webgd_community');
             } catch (Exception $e) {
                 $transaction->rollback($e);
             }
