@@ -136,13 +136,13 @@ class block_webgd_community extends block_list {
         $videoLibras = '#';
 
         if ($video == 'Comunidades') {
-            $videoLibras = $CFG->wwwroot . '/blocks/webgd/videos/comunidade.mp4';
+            $videoLibras = $CFG->wwwroot . '/blocks/webgd_community/videos/comunidade.mp4';
         }
         if ($video == 'Minhas') {
-            $videoLibras = $CFG->wwwroot . '/blocks/webgd/videos/minha_comu.mp4';
+            $videoLibras = $CFG->wwwroot . '/blocks/webgd_community/videos/minha_comu.mp4';
         }
         if ($video == 'Cadastrar') {
-            $videoLibras = $CFG->wwwroot . '/blocks/webgd/videos/cadastro.mp4';
+            $videoLibras = $CFG->wwwroot . '/blocks/webgd/videos_community/cadastro.mp4';
         }
 
         return "<div class='linha_webgd'>
