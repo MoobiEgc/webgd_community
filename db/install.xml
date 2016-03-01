@@ -22,6 +22,7 @@
                 <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
                 <FIELD NAME="name_question" TYPE="text" LENGTH="60" NOTNULL="true" SEQUENCE="false" />
                 <FIELD NAME="question" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" />            
+                <FIELD NAME="video" TYPE="text" LENGTH="300" NOTNULL="false" SEQUENCE="false" />            
             </FIELDS>
             <KEYS>
                 <KEY NAME="primary" TYPE="primary" FIELDS="id" />
@@ -81,7 +82,8 @@
                 <FIELD NAME="exemplo" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false"/>                
                 <FIELD NAME="video_exemplo" TYPE="text" LENGTH="300" NOTNULL="false" SEQUENCE="false"/>                
                 <FIELD NAME="total_votos" TYPE="int" LENGTH="11" NOTNULL="false" SEQUENCE="false"/>                
-                <FIELD NAME="votos" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false" DEFAULT="0"/>                
+                <FIELD NAME="votos" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="image" TYPE="text" LENGTH="300" NOTNULL="false" SEQUENCE="false"/>                 
             </FIELDS>
             <KEYS>
                 <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
@@ -170,6 +172,7 @@
                 <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>            
                 <FIELD NAME="time" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                                                            
                 <FIELD NAME="type" TYPE="text" LENGTH="45" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="total_votos" TYPE="int" LENGTH="11" NOTNULL="false" SEQUENCE="false" DEFAULT="0"/>
                 <FIELD NAME="total_votos_sim" TYPE="int" LENGTH="11" NOTNULL="false" SEQUENCE="false" DEFAULT="0"/>        
                 <FIELD NAME="total_votos_nao" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" DEFAULT="0"/>        
             </FIELDS>
@@ -182,11 +185,8 @@
         <TABLE NAME="block_webgd_cp_question" COMMENT="">
             <FIELDS>
                 <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="true" />
-                <FIELD NAME="name" TYPE="text" LENGTH="60" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-                <FIELD NAME="community" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-                <FIELD NAME="timecreated" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-                <FIELD NAME="enabled" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>
-                <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                
+                <FIELD NAME="name" TYPE="text" LENGTH="60" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                
+                <FIELD NAME="enabled" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="0"/>                        
                 <FIELD NAME="startdate" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>                                                            
                 <FIELD NAME="enddate" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>                                                            
                 <FIELD NAME="post" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>    
