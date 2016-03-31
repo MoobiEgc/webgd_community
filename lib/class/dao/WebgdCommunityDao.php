@@ -169,7 +169,11 @@ class WebgdCommunityDao {
     }
 
     public function postCommentById($idPost) {
-        return $this->DB->get_records(TableResouces::$TABLE_PAGE_COMMUNITY_POST_COMMENT, array('postid' => $idPost));
+        $sql="SELECT pc.id, u.firstname, pc.userid, pc.time, pc.comentario "
+             . "FROM {".TableResouces::$TABLE_PAGE_COMMUNITY_POST_COMMENT."} pc "
+             . "JOIN {user} u ON pc.userid = u.id "
+            . "WHERE pc.postid = ?";
+        return $this->DB->get_records_sql($sql, array('postid' => $idPost));
     }
 
     public function searchPostByID($idPost) {

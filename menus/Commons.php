@@ -846,7 +846,7 @@ class Commons {
                 $resposta .= $OUTPUT->user_picture($img, array('size' => 25, 'alttext' => false, 'link' => false));
             }
 
-            $resposta .= "</span>&nbsp;<span class='nome_criador'>" . html_writer::tag('a', /* $comment->username */ "teste", array('href' => $CFG->wwwroot . '/user/profile.php?id=' . $comment->userid)) . "</span>
+            $resposta .= "</span>&nbsp;<span class='nome_criador'>" . html_writer::tag('a',  $comment->firstname  , array('href' => $CFG->wwwroot . '/user/profile.php?id=' . $comment->userid)) . "</span>
                 ".get_string('publicouEm','block_webgd_community')."
                 <div class='data'>" . strftime('%d de %B de %Y às %H %M %S ', $comment->time) . "</div>
               </span>
