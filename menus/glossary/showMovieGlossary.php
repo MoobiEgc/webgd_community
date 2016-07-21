@@ -15,13 +15,13 @@ $glossary = $webgdCommunityDao->searchGlossaryByCommunityById($idCommunity, $idG
 switch ($q) {
 
     case 'termo':
-        $path = $glossary->videotermo;
+        $path = $glossary->video_termo;
         break;
     case 'conceito':
-        $path = $glossary->videoconceito;
+        $path = $glossary->video_conceito;
         break;
     case 'exemplo':
-        $path = $glossary->videoexemplo;
+        $path = $glossary->video_exemplo;
         break;
 }
 

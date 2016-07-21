@@ -78,8 +78,9 @@ echo "<ul id='menu-tab'>
                 <li>Exemplo</li>
             </ul>";
 echo "<div class='tab-glossary' id='Sinal'>";
-if ($glossary->videotermo != '' && $glossary->videotermo != '0')  { 
-	echo "<div class='tab-glossary-video'><video controls preload='none'>
+
+if ($glossary->video_termo != '' && $glossary->video_termo != '0') {
+    echo "<div class='tab-glossary-video'><video controls preload='none'>
                     <source src='" . $CFG->wwwroot . "/blocks/webgd_community/menus/glossary/showMovieGlossary.php?glossary=" . $idGlossario . "&community=" . $idCommunity . "&q=termo' type='video/webm'>
                     <source src='" . $CFG->wwwroot . "/blocks/webgd_community/menus/glossary/showMovieGlossary.php?glossary=" . $idGlossario . "&community=" . $idCommunity . "&q=termo' type='video/mpeg'>
                     <source src='" . $CFG->wwwroot . "/blocks/webgd_community/menus/glossary/showMovieGlossary.php?glossary=" . $idGlossario . "&community=" . $idCommunity . "&q=termo' type='video/mp4'>
@@ -89,7 +90,7 @@ if ($glossary->videotermo != '' && $glossary->videotermo != '0')  {
 
 echo "</div><div class='tab-glossary tab-hide' id='Conceito'>";
 echo "<div class='div-tab-texto'><span style='font-weight:bold;'>CONCEITO:</span><br/><br/>" . $glossary->conceito . "</div>";
-if ($glossary->videoconceito != '' && $glossary->videoconceito != '0') {
+if ($glossary->video_conceito != '' && $glossary->video_conceito != '0') {
     echo "<div class='tab-glossary-video'><video controls preload='none'>
                     <source src='" . $CFG->wwwroot . "/blocks/webgd_community/menus/glossary/showMovieGlossary.php?glossary=" . $idGlossario . "&community=" . $idCommunity . "&q=conceito' type='video/webm'>
                     <source src='" . $CFG->wwwroot . "/blocks/webgd_community/menus/glossary/showMovieGlossary.php?glossary=" . $idGlossario . "&community=" . $idCommunity . "&q=conceito' type='video/mpeg'>
@@ -101,7 +102,7 @@ if ($glossary->videoconceito != '' && $glossary->videoconceito != '0') {
 echo "</div><div class='tab-glossary tab-hide' id='Exemplo'>";
 echo "<div class='div-tab-texto'><span style='font-weight:bold;'>EXEMPLO:</span><br/><br/>" . $glossary->exemplo . "</div>";
 
-if ($glossary->videoexemplo != '' && $glossary->videoexemplo != '0') {
+if ($glossary->video_exemplo != '' && $glossary->video_exemplo != '0') {
     echo "<div class='tab-glossary-video'><video controls preload='none'>
                     <source src='" . $CFG->wwwroot . "/blocks/webgd_community/menus/glossary/showMovieGlossary.php?glossary=" . $idGlossario . "&community=" . $idCommunity . "&q=exemplo' type='video/webm'>
                     <source src='" . $CFG->wwwroot . "/blocks/webgd_community/menus/glossary/showMovieGlossary.php?glossary=" . $idGlossario . "&community=" . $idCommunity . "&q=exemplo' type='video/mpeg'>
