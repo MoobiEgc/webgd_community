@@ -1,13 +1,13 @@
 <?php
 
-require_login(1);
+
 require_once(dirname(__FILE__) . '/../../config.php');
 global $USER, $CFG;
 require_once($CFG->dirroot . '/blocks/webgd_community/lib/class/dao/WebgdCommunityDao.php');
 require_once($CFG->dirroot . '/blocks/webgd_community/menus/Commons.php');
 $ultimo_post = optional_param('ultimo_post', 0, PARAM_INT);
 $id_comunidade = optional_param('id_comunidade', 0, PARAM_INT);
-
+require_login(1);
 $retorno = array('ultimo_post' => $ultimo_post, 'mensagem' => '', 'atualizar' => '0');
 
 $novo_ultimo = $ultimo_post;

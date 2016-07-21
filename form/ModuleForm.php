@@ -72,7 +72,7 @@ class ModuleForm extends moodleform {
         $mform->setType('conteudo', PARAM_RAW);
 
         if ($this->_customdata['community']) {
-            $mform->setDefault('conteudo', array('text' => $communityDao->description));
+            $mform->setDefault('conteudo',  $communityDao->description);
         }
 
         $buttonarray = array();

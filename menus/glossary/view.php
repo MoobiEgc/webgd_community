@@ -78,8 +78,8 @@ echo "<ul id='menu-tab'>
                 <li>Exemplo</li>
             </ul>";
 echo "<div class='tab-glossary' id='Sinal'>";
-if ($glossary->videotermo != '' && $glossary->videotermo != '0') {
-    echo "<div class='tab-glossary-video'><video controls preload='none'>
+if ($glossary->videotermo != '' && $glossary->videotermo != '0')  { 
+	echo "<div class='tab-glossary-video'><video controls preload='none'>
                     <source src='" . $CFG->wwwroot . "/blocks/webgd_community/menus/glossary/showMovieGlossary.php?glossary=" . $idGlossario . "&community=" . $idCommunity . "&q=termo' type='video/webm'>
                     <source src='" . $CFG->wwwroot . "/blocks/webgd_community/menus/glossary/showMovieGlossary.php?glossary=" . $idGlossario . "&community=" . $idCommunity . "&q=termo' type='video/mpeg'>
                     <source src='" . $CFG->wwwroot . "/blocks/webgd_community/menus/glossary/showMovieGlossary.php?glossary=" . $idGlossario . "&community=" . $idCommunity . "&q=termo' type='video/mp4'>

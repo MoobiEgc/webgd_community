@@ -193,8 +193,7 @@
                 <FIELD NAME="attachment_question" TYPE="int" LENGTH="20" NOTNULL="false" SEQUENCE="false"/>    
             </FIELDS>
             <KEYS>
-                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-                <KEY NAME="FK_block_webgd_cp_question_block_webgd_cp" TYPE="foreign" FIELDS="community" REFTABLE="block_webgd_cp" REFFIELDS="id"/>                        
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>                  
             </KEYS>
         </TABLE>
 
