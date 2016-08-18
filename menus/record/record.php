@@ -107,27 +107,27 @@ if ($idFile) {
                 navigator.msGetUserMedia;
 
         var ORIGINAL_DOC_TITLE = document.title;
-        var video = $('video');
+        var video = document.querySelector('video');
         var canvas = document.createElement('canvas'); // offscreen canvas.
         var rafId = null;
         var startTime = null;
         var endTime = null;
         var frames = [];
 
-        function $(selector) {
+        /*function $(selector) {
             return document.querySelector(selector) || null;
-        }
+        }*/
 
         function toggleActivateRecordButton() {
 
-            $('#record-me').src = "../../lib/icones/menus/gravar.png";
+            document.querySelector('#record-me').src = "../../lib/icones/menus/gravar.png";
         }
 
         function turnOnCamera(e) {
             e.target.disabled = true;
-            $('#record-me').src = "../../lib/icones/menus/gravar.png";
-            $('#camera-me').src = "../../lib/icones/menus/ligar_camera_inativo.png";
-            $('#stop-me').src = "../../lib/icones/menus/parar_desabilitado.png";
+            document.querySelector('#record-me').src = "../../lib/icones/menus/gravar.png";
+            document.querySelector('#camera-me').src = "../../lib/icones/menus/ligar_camera_inativo.png";
+            document.querySelector('#stop-me').src = "../../lib/icones/menus/parar_desabilitado.png";
 
             video.controls = false;
 
@@ -151,7 +151,7 @@ if ($idFile) {
         ;
 
         function record() {
-            var elapsedTime = $('#elasped-time');
+            var elapsedTime = document.querySelector('#elasped-time');
             var ctx = canvas.getContext('2d');
             var CANVAS_HEIGHT = canvas.height;
             var CANVAS_WIDTH = canvas.width;
@@ -160,8 +160,8 @@ if ($idFile) {
             startTime = Date.now();
 
             toggleActivateRecordButton();
-            $('#stop-me').src = "../../lib/icones/menus/parar.png";
-            $('#record-me').src = "../../lib/icones/menus/gravar_desabilitado.png";
+            document.querySelector('#stop-me').src = "../../lib/icones/menus/parar.png";
+            document.querySelector('#record-me').src = "../../lib/icones/menus/gravar_desabilitado.png";
 
             function drawVideoFrame_(time) {
                 rafId = requestAnimationFrame(drawVideoFrame_);
@@ -184,8 +184,8 @@ if ($idFile) {
         function stop() {
             cancelAnimationFrame(rafId);
             endTime = Date.now();
-            $('#stop-me').src = "../../lib/icones/menus/parar_desabilitado.png";
-            $('#record-me').src = "../../lib/icones/menus/gravar.png";
+            document.querySelector('#stop-me').src = "../../lib/icones/menus/parar_desabilitado.png";
+            document.querySelector('#record-me').src = "../../lib/icones/menus/gravar.png";
             document.title = ORIGINAL_DOC_TITLE;
 
             toggleActivateRecordButton();
@@ -199,8 +199,8 @@ if ($idFile) {
 
         function embedVideoPreview(opt_url) {
             var url = opt_url || null;
-            var video = $('#video-preview video') || null;
-            var downloadLink = $('#video-preview a[download]') || null;
+            var video = document.querySelector('#video-preview video') || null;
+            var downloadLink = document.querySelector('#video-preview a[download]') || null;
 
             if (!video) {
                 video = document.createElement('video');
@@ -209,7 +209,7 @@ if ($idFile) {
                 video.loop = true;
                 video.style.width = '95%';
                 //video.style.height = canvas.height + 'px';
-                $('#video-preview').appendChild(video);
+                document.querySelector('#video-preview').appendChild(video);
 
                 downloadLink = document.createElement('a');
                 downloadLink.download = 'meu_video.webm';
@@ -218,7 +218,7 @@ if ($idFile) {
                 var p = document.createElement('p');
                 p.appendChild(downloadLink);
 
-                $('#video-preview').appendChild(p);
+                document.querySelector('#video-preview').appendChild(p);
 
             } else {
                 window.URL.revokeObjectURL(video.src);
@@ -236,9 +236,9 @@ if ($idFile) {
         }
 
         function initEvents() {
-            $('#camera-me').addEventListener('click', turnOnCamera);
-            $('#record-me').addEventListener('click', record);
-            $('#stop-me').addEventListener('click', stop);
+            document.querySelector('#camera-me').addEventListener('click', turnOnCamera);
+            document.querySelector('#record-me').addEventListener('click', record);
+            document.querySelector('#stop-me').addEventListener('click', stop);
         }
 
         initEvents();
