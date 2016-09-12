@@ -75,7 +75,7 @@ if ($idFile) {
         echo "<img src='" . $CFG->wwwroot . ImageResources::CAMERA . "' id='camera-me' style='cursor:pointer; width:90%;'>";
         ?>
         <h4>Ao vivo</h4>
-        <video autoplay muted style="width:95%; height:auto;"></video>
+        <video autoplay muted style="width:95%; height:auto;" id="video_inicial"></video>
     </div>
     <div id="video-preview" style="width:45%; float:right;">
         <?php
@@ -107,7 +107,7 @@ if ($idFile) {
                 navigator.msGetUserMedia;
 
         var ORIGINAL_DOC_TITLE = document.title;
-        var video = document.querySelector('video');
+        var video = document.querySelector('#video_inicial');
         var canvas = document.createElement('canvas'); // offscreen canvas.
         var rafId = null;
         var startTime = null;
@@ -171,7 +171,7 @@ if ($idFile) {
                 document.title = 'Gravando...' + Math.round((Date.now() - startTime) / 1000) + 's';
 
                 var url = canvas.toDataURL('image/webp', 1);
-
+                
                 frames.push(url);
 
             }
@@ -208,7 +208,7 @@ if ($idFile) {
                 video.controls = true;
                 video.loop = true;
                 video.style.width = '95%';
-                //video.style.height = canvas.height + 'px';
+                video.style.height = canvas.height + 'px';
                 document.querySelector('#video-preview').appendChild(video);
 
                 downloadLink = document.createElement('a');
