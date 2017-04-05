@@ -23,7 +23,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 $string['webgd_community:addinstance'] = 'Add a new people block';
-$string['pluginname'] = 'WEBGD COMUNIDADES';
+$string['pluginname'] = 'Moobi COMUNIDADES';
 
 $string['comunidades'] = 'Comunidades';
 $string['minhasComunidades'] = 'Minhas Comunidades';
@@ -31,7 +31,7 @@ $string['cadastrarComunidade'] = 'Cadastrar Comunidade';
 $string['save'] = 'Salvar';
 
 $string['webgd:addinstance'] = 'Add a new people block';
-$string['webgd:administracao'] = 'Permissão para administrar bloco WEBGD';
+$string['webgd:administracao'] = 'Permissão para administrar bloco Moobi';
 $string['webgd:cadastrarPagina'] = 'Permissão para cadastrar uma pagina';
 $string['webgd:editarPagina'] = 'Permissão para editar uma pagina';
 $string['webgd:deletarPagina'] = 'Permissão para deletar uma pagina';

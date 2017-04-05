@@ -19,7 +19,7 @@
  * webgd block caps.
  *
  * @package    block_webgd
- * @copyright  Mark Nelson <markn@moodle.com>
+ * @copyright  2016 onwards Moobi group from UFSC http://www.webgd.ufsc.br/
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();

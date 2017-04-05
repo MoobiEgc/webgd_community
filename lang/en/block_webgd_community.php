@@ -26,7 +26,7 @@
  * HEADERS
  */
 $string['webgd_community:addinstance'] = 'Add a new people block';
-$string['pluginname'] = 'WEBGD COMMUNITIES';
+$string['pluginname'] = 'Moobi COMMUNITIES';
 $string['comunidades'] = 'Communities';
 $string['adicionarComunidade'] = 'Register Community';
 
